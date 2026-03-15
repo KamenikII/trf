@@ -1,0 +1,37 @@
+/* ---------- CTA Section ---------- */
+.cta-section {
+    padding: var(--Spacing--Primitives--space-16) var(--Spacing--Semantics--page-padding-x-lg);
+    text-align: center;
+    border-top: 1px solid var(--Primitives--neutral--100);
+}
+
+.cta-section__inner {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.cta-section__title {
+    font-family: var(--Typography--Semantics--Decorative--heading-1--font-family);
+    font-size: var(--Typography--Semantics--Decorative--heading-1--font-size);
+    font-weight: var(--Typography--Semantics--Decorative--heading-1--font-weight);
+    line-height: var(--Typography--Semantics--Decorative--heading-1--line-height);
+    letter-spacing: var(--Typography--Semantics--Decorative--heading-1--letter-spacing);
+    margin-bottom: var(--Spacing--Primitives--space-4);
+}
+
+.cta-section__text {
+    font-size: var(--Typography--Semantics--Main--body--font-size);
+    line-height: var(--Typography--Semantics--Main--body--line-height);
+    color: var(--Primitives--neutral--500);
+    margin-bottom: var(--Spacing--Primitives--space-8);
+}
+
+@media (max-width: 900px) {
+    .cta-section {
+        padding: var(--Spacing--Primitives--space-14) var(--Spacing--Semantics--page-padding-x-sm);
+    }
+
+    .cta-section__title {
+        font-size: var(--Typography--Primitives--font-size--24);
+    }
+}

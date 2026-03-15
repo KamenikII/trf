@@ -1,0 +1,533 @@
+:root {
+  /* Colors: Value */
+
+  /* --- neutral --- */
+  --Primitives--neutral--50: #FAFAFA;
+  --Primitives--neutral--100: #F5F5F5;
+  --Primitives--neutral--150: #EDEDED;
+  --Primitives--neutral--200: #E5E5E5;
+  --Primitives--neutral--300: #D4D4D4;
+  --Primitives--neutral--400: #A3A3A3;
+  --Primitives--neutral--500: #737373;
+  --Primitives--neutral--600: #525252;
+  --Primitives--neutral--700: #404040;
+  --Primitives--neutral--800: #262626;
+  --Primitives--neutral--900: #171717;
+  --Primitives--neutral--950: #0A0A0A;
+
+  /* --- red --- */
+  --Primitives--red--50: #FEF2F2;
+  --Primitives--red--100: #FEE2E2;
+  --Primitives--red--150: #FED5D5;
+  --Primitives--red--200: #FECACA;
+  --Primitives--red--300: #FCA5A5;
+  --Primitives--red--400: #F87171;
+  --Primitives--red--500: #EF4444;
+  --Primitives--red--600: #DC2626;
+  --Primitives--red--700: #B91C1C;
+  --Primitives--red--800: #991B1B;
+  --Primitives--red--900: #7F1D1D;
+  --Primitives--red--950: #450A0A;
+
+  /* --- rose --- */
+  --Primitives--rose--50: #FFF1F2;
+  --Primitives--rose--100: #FFE4E6;
+  --Primitives--rose--150: #FFDADE;
+  --Primitives--rose--200: #FECDD3;
+  --Primitives--rose--300: #FDA4AF;
+  --Primitives--rose--400: #FB7185;
+  --Primitives--rose--500: #F43F5E;
+  --Primitives--rose--600: #E11D48;
+  --Primitives--rose--700: #BE123C;
+  --Primitives--rose--800: #9F1239;
+  --Primitives--rose--900: #881337;
+  --Primitives--rose--950: #4C0519;
+
+  /* --- orange --- */
+  --Primitives--orange--50: #FFF7ED;
+  --Primitives--orange--100: #FFEDD5;
+  --Primitives--orange--150: #FEE0BB;
+  --Primitives--orange--200: #FED7AA;
+  --Primitives--orange--300: #FDBA74;
+  --Primitives--orange--400: #FB923C;
+  --Primitives--orange--500: #F97316;
+  --Primitives--orange--600: #EA580C;
+  --Primitives--orange--700: #C2410C;
+  --Primitives--orange--800: #9A3412;
+  --Primitives--orange--900: #7C2D12;
+  --Primitives--orange--950: #431407;
+
+  /* --- amber --- */
+  --Primitives--amber--50: #FFFBEB;
+  --Primitives--amber--100: #FEF3C7;
+  --Primitives--amber--150: #FEEBAC;
+  --Primitives--amber--200: #FDE68A;
+  --Primitives--amber--300: #FCD34D;
+  --Primitives--amber--400: #FBBF24;
+  --Primitives--amber--500: #F59E0B;
+  --Primitives--amber--600: #D97706;
+  --Primitives--amber--700: #B45309;
+  --Primitives--amber--800: #92400E;
+  --Primitives--amber--900: #78350F;
+  --Primitives--amber--950: #451A03;
+
+  /* --- yellow --- */
+  --Primitives--yellow--50: #FEFCE8;
+  --Primitives--yellow--100: #FEF9C3;
+  --Primitives--yellow--150: #FEF4A8;
+  --Primitives--yellow--200: #FEF08A;
+  --Primitives--yellow--300: #FDE047;
+  --Primitives--yellow--400: #FACC15;
+  --Primitives--yellow--500: #EAB308;
+  --Primitives--yellow--600: #CA8A04;
+  --Primitives--yellow--700: #A16207;
+  --Primitives--yellow--800: #854D0E;
+  --Primitives--yellow--900: #713F12;
+  --Primitives--yellow--950: #422006;
+
+  /* --- lime --- */
+  --Primitives--lime--50: #F7FEE7;
+  --Primitives--lime--100: #ECFCCB;
+  --Primitives--lime--150: #DDFAB2;
+  --Primitives--lime--200: #D9F99D;
+  --Primitives--lime--300: #BEF264;
+  --Primitives--lime--400: #A3E635;
+  --Primitives--lime--500: #84CC16;
+  --Primitives--lime--600: #65A30D;
+  --Primitives--lime--700: #4D7C0F;
+  --Primitives--lime--800: #3F6212;
+  --Primitives--lime--900: #365314;
+  --Primitives--lime--950: #1A2E05;
+
+  /* --- green --- */
+  --Primitives--green--50: #F0FDF4;
+  --Primitives--green--100: #DCFCE7;
+  --Primitives--green--150: #CAFCD8;
+  --Primitives--green--200: #BBF7D0;
+  --Primitives--green--300: #86EFAC;
+  --Primitives--green--400: #4ADE80;
+  --Primitives--green--500: #22C55E;
+  --Primitives--green--600: #16A34A;
+  --Primitives--green--700: #15803D;
+  --Primitives--green--800: #166534;
+  --Primitives--green--900: #14532D;
+  --Primitives--green--950: #052E16;
+
+  /* --- teal --- */
+  --Primitives--teal--50: #F0FDFA;
+  --Primitives--teal--100: #CCFBF1;
+  --Primitives--teal--150: #B2F5EA;
+  --Primitives--teal--200: #99F6E4;
+  --Primitives--teal--300: #5EEAD4;
+  --Primitives--teal--400: #2DD4BF;
+  --Primitives--teal--500: #14B8A6;
+  --Primitives--teal--600: #0D9488;
+  --Primitives--teal--700: #0F766E;
+  --Primitives--teal--800: #115E59;
+  --Primitives--teal--900: #134E4A;
+  --Primitives--teal--950: #042F2E;
+
+  /* --- cyan --- */
+  --Primitives--cyan--50: #ECFEFF;
+  --Primitives--cyan--100: #CFFAFE;
+  --Primitives--cyan--150: #B5F5FC;
+  --Primitives--cyan--200: #A5F3FC;
+  --Primitives--cyan--300: #67E8F9;
+  --Primitives--cyan--400: #22D3EE;
+  --Primitives--cyan--500: #06B6D4;
+  --Primitives--cyan--600: #0891B2;
+  --Primitives--cyan--700: #0E7490;
+  --Primitives--cyan--800: #155E75;
+  --Primitives--cyan--900: #164E63;
+  --Primitives--cyan--950: #083344;
+
+  /* --- blue --- */
+  --Primitives--blue--50: #EFF6FF;
+  --Primitives--blue--100: #DBEAFE;
+  --Primitives--blue--150: #C8DFFE;
+  --Primitives--blue--200: #BFDBFE;
+  --Primitives--blue--300: #93C5FD;
+  --Primitives--blue--400: #60A5FA;
+  --Primitives--blue--500: #3B82F6;
+  --Primitives--blue--600: #2563EB;
+  --Primitives--blue--700: #1D4ED8;
+  --Primitives--blue--800: #1E40AF;
+  --Primitives--blue--900: #1E3A8A;
+  --Primitives--blue--950: #172554;
+
+  /* --- violet --- */
+  --Primitives--violet--50: #F5F3FF;
+  --Primitives--violet--100: #EDE9FE;
+  --Primitives--violet--150: #E2DCFD;
+  --Primitives--violet--200: #DDD6FE;
+  --Primitives--violet--300: #C4B5FD;
+  --Primitives--violet--400: #A78BFA;
+  --Primitives--violet--500: #8B5CF6;
+  --Primitives--violet--600: #7C3AED;
+  --Primitives--violet--700: #6D28D9;
+  --Primitives--violet--800: #5B21B6;
+  --Primitives--violet--900: #4C1D95;
+  --Primitives--violet--950: #2E1065;
+
+  /* --- Alpha variants (based on -500 of each color) --- */
+  --Primitives--neutral--alpha-5: rgba(115, 115, 115, 0.05);
+  --Primitives--neutral--alpha-10: rgba(115, 115, 115, 0.1);
+  --Primitives--neutral--alpha-20: rgba(115, 115, 115, 0.2);
+  --Primitives--neutral--alpha-40: rgba(115, 115, 115, 0.4);
+  --Primitives--neutral--alpha-60: rgba(115, 115, 115, 0.6);
+  --Primitives--neutral--alpha-80: rgba(115, 115, 115, 0.8);
+  --Primitives--red--alpha-5: rgba(239, 68, 68, 0.05);
+  --Primitives--red--alpha-10: rgba(239, 68, 68, 0.1);
+  --Primitives--red--alpha-20: rgba(239, 68, 68, 0.2);
+  --Primitives--red--alpha-40: rgba(239, 68, 68, 0.4);
+  --Primitives--red--alpha-60: rgba(239, 68, 68, 0.6);
+  --Primitives--red--alpha-80: rgba(239, 68, 68, 0.8);
+  --Primitives--rose--alpha-5: rgba(244, 63, 94, 0.05);
+  --Primitives--rose--alpha-10: rgba(244, 63, 94, 0.1);
+  --Primitives--rose--alpha-20: rgba(244, 63, 94, 0.2);
+  --Primitives--rose--alpha-40: rgba(244, 63, 94, 0.4);
+  --Primitives--rose--alpha-60: rgba(244, 63, 94, 0.6);
+  --Primitives--rose--alpha-80: rgba(244, 63, 94, 0.8);
+  --Primitives--orange--alpha-5: rgba(249, 115, 22, 0.05);
+  --Primitives--orange--alpha-10: rgba(249, 115, 22, 0.1);
+  --Primitives--orange--alpha-20: rgba(249, 115, 22, 0.2);
+  --Primitives--orange--alpha-40: rgba(249, 115, 22, 0.4);
+  --Primitives--orange--alpha-60: rgba(249, 115, 22, 0.6);
+  --Primitives--orange--alpha-80: rgba(249, 115, 22, 0.8);
+  --Primitives--amber--alpha-5: rgba(245, 158, 11, 0.05);
+  --Primitives--amber--alpha-10: rgba(245, 158, 11, 0.1);
+  --Primitives--amber--alpha-20: rgba(245, 158, 11, 0.2);
+  --Primitives--amber--alpha-40: rgba(245, 158, 11, 0.4);
+  --Primitives--amber--alpha-60: rgba(245, 158, 11, 0.6);
+  --Primitives--amber--alpha-80: rgba(245, 158, 11, 0.8);
+  --Primitives--yellow--alpha-5: rgba(234, 179, 8, 0.05);
+  --Primitives--yellow--alpha-10: rgba(234, 179, 8, 0.1);
+  --Primitives--yellow--alpha-20: rgba(234, 179, 8, 0.2);
+  --Primitives--yellow--alpha-40: rgba(234, 179, 8, 0.4);
+  --Primitives--yellow--alpha-60: rgba(234, 179, 8, 0.6);
+  --Primitives--yellow--alpha-80: rgba(234, 179, 8, 0.8);
+  --Primitives--lime--alpha-5: rgba(132, 204, 22, 0.05);
+  --Primitives--lime--alpha-10: rgba(132, 204, 22, 0.1);
+  --Primitives--lime--alpha-20: rgba(132, 204, 22, 0.2);
+  --Primitives--lime--alpha-40: rgba(132, 204, 22, 0.4);
+  --Primitives--lime--alpha-60: rgba(132, 204, 22, 0.6);
+  --Primitives--lime--alpha-80: rgba(132, 204, 22, 0.8);
+  --Primitives--green--alpha-5: rgba(34, 197, 94, 0.05);
+  --Primitives--green--alpha-10: rgba(34, 197, 94, 0.1);
+  --Primitives--green--alpha-20: rgba(34, 197, 94, 0.2);
+  --Primitives--green--alpha-40: rgba(34, 197, 94, 0.4);
+  --Primitives--green--alpha-60: rgba(34, 197, 94, 0.6);
+  --Primitives--green--alpha-80: rgba(34, 197, 94, 0.8);
+  --Primitives--teal--alpha-5: rgba(20, 184, 166, 0.05);
+  --Primitives--teal--alpha-10: rgba(20, 184, 166, 0.1);
+  --Primitives--teal--alpha-20: rgba(20, 184, 166, 0.2);
+  --Primitives--teal--alpha-40: rgba(20, 184, 166, 0.4);
+  --Primitives--teal--alpha-60: rgba(20, 184, 166, 0.6);
+  --Primitives--teal--alpha-80: rgba(20, 184, 166, 0.8);
+  --Primitives--cyan--alpha-5: rgba(6, 182, 212, 0.05);
+  --Primitives--cyan--alpha-10: rgba(6, 182, 212, 0.1);
+  --Primitives--cyan--alpha-20: rgba(6, 182, 212, 0.2);
+  --Primitives--cyan--alpha-40: rgba(6, 182, 212, 0.4);
+  --Primitives--cyan--alpha-60: rgba(6, 182, 212, 0.6);
+  --Primitives--cyan--alpha-80: rgba(6, 182, 212, 0.8);
+  --Primitives--blue--alpha-5: rgba(59, 130, 246, 0.05);
+  --Primitives--blue--alpha-10: rgba(59, 130, 246, 0.1);
+  --Primitives--blue--alpha-20: rgba(59, 130, 246, 0.2);
+  --Primitives--blue--alpha-40: rgba(59, 130, 246, 0.4);
+  --Primitives--blue--alpha-60: rgba(59, 130, 246, 0.6);
+  --Primitives--blue--alpha-80: rgba(59, 130, 246, 0.8);
+  --Primitives--violet--alpha-5: rgba(139, 92, 246, 0.05);
+  --Primitives--violet--alpha-10: rgba(139, 92, 246, 0.1);
+  --Primitives--violet--alpha-20: rgba(139, 92, 246, 0.2);
+  --Primitives--violet--alpha-40: rgba(139, 92, 246, 0.4);
+  --Primitives--violet--alpha-60: rgba(139, 92, 246, 0.6);
+  --Primitives--violet--alpha-80: rgba(139, 92, 246, 0.8);
+
+  /* Colors: Semantics */
+  --Semantics--primary: var(--Primitives--neutral--950);
+  --Semantics--primary-foreground: var(--Primitives--neutral--50);
+  --Semantics--success: var(--Primitives--green--600);
+  --Semantics--success-light: var(--Primitives--green--50);
+  --Semantics--error: var(--Primitives--red--600);
+  --Semantics--error-light: var(--Primitives--red--50);
+  --Semantics--warning: var(--Primitives--amber--500);
+  --Semantics--warning-light: var(--Primitives--amber--50);
+  --Semantics--info: var(--Primitives--blue--600);
+  --Semantics--info-light: var(--Primitives--blue--50);
+  --Semantics--muted: var(--Primitives--neutral--100);
+  --Semantics--border: var(--Primitives--neutral--200);
+
+  /* Typography: Primitives */
+  --Typography--Primitives--font-family--inter: "Inter";
+  --Typography--Primitives--font-family--source-serif-4: "Source Serif 4";
+  --Typography--Primitives--font-family--monospace: monospace;
+  --Typography--Primitives--font-size--11: 12px;
+  --Typography--Primitives--font-size--12: 12px;
+  --Typography--Primitives--font-size--13: 16px;
+  --Typography--Primitives--font-size--14: 16px;
+  --Typography--Primitives--font-size--15: 16px;
+  --Typography--Primitives--font-size--16: 16px;
+  --Typography--Primitives--font-size--17: 20px;
+  --Typography--Primitives--font-size--18: 20px;
+  --Typography--Primitives--font-size--20: 20px;
+  --Typography--Primitives--font-size--24: 24px;
+  --Typography--Primitives--font-size--32: 32px;
+  --Typography--Primitives--font-size--36: 36px;
+  --Typography--Primitives--font-size--40: 40px;
+  --Typography--Primitives--font-size--48: 48px;
+  --Typography--Primitives--font-weight--300: 300;
+  --Typography--Primitives--font-weight--400: 400;
+  --Typography--Primitives--font-weight--500: 500;
+  --Typography--Primitives--font-weight--600: 600;
+  --Typography--Primitives--font-weight--700: 700;
+  --Typography--Primitives--line-height--110: 110%;
+  --Typography--Primitives--line-height--115: 115%;
+  --Typography--Primitives--line-height--125: 125%;
+  --Typography--Primitives--line-height--140: 140%;
+  --Typography--Primitives--line-height--150: 150%;
+  --Typography--Primitives--line-height--160: 160%;
+  --Typography--Primitives--line-height--165: 165%;
+  --Typography--Primitives--line-height--170: 170%;
+  --Typography--Primitives--letter-spacing--neg-0_03: -0.03em;
+  --Typography--Primitives--letter-spacing--neg-0_02: -0.02em;
+  --Typography--Primitives--letter-spacing--neg-0_01: -0.01em;
+  --Typography--Primitives--letter-spacing--0: 0;
+  --Typography--Primitives--letter-spacing--0_1: 0.1em;
+
+  /* Typography: Semantics */
+
+  /* --- Decorative (Source Serif 4) --- */
+  --Typography--Semantics--Decorative--display--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--display--font-size: var(--Typography--Primitives--font-size--48);
+  --Typography--Semantics--Decorative--display--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--display--line-height: var(--Typography--Primitives--line-height--110);
+  --Typography--Semantics--Decorative--display--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Decorative--heading-1--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--heading-1--font-size: var(--Typography--Primitives--font-size--36);
+  --Typography--Semantics--Decorative--heading-1--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--heading-1--line-height: var(--Typography--Primitives--line-height--115);
+  --Typography--Semantics--Decorative--heading-1--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_02);
+
+  --Typography--Semantics--Decorative--heading-2--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--heading-2--font-size: var(--Typography--Primitives--font-size--24);
+  --Typography--Semantics--Decorative--heading-2--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--heading-2--line-height: var(--Typography--Primitives--line-height--125);
+  --Typography--Semantics--Decorative--heading-2--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_02);
+
+  --Typography--Semantics--Decorative--heading-3--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--heading-3--font-size: var(--Typography--Primitives--font-size--20);
+  --Typography--Semantics--Decorative--heading-3--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--heading-3--line-height: var(--Typography--Primitives--line-height--140);
+  --Typography--Semantics--Decorative--heading-3--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_01);
+
+  --Typography--Semantics--Decorative--heading-4--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--heading-4--font-size: var(--Typography--Primitives--font-size--18);
+  --Typography--Semantics--Decorative--heading-4--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--heading-4--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Decorative--heading-4--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_01);
+
+  --Typography--Semantics--Decorative--body-large--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--body-large--font-size: var(--Typography--Primitives--font-size--17);
+  --Typography--Semantics--Decorative--body-large--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Decorative--body-large--line-height: var(--Typography--Primitives--line-height--170);
+  --Typography--Semantics--Decorative--body-large--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Decorative--body--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--body--font-size: var(--Typography--Primitives--font-size--15);
+  --Typography--Semantics--Decorative--body--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Decorative--body--line-height: var(--Typography--Primitives--line-height--165);
+  --Typography--Semantics--Decorative--body--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Decorative--body-small--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--body-small--font-size: var(--Typography--Primitives--font-size--13);
+  --Typography--Semantics--Decorative--body-small--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Decorative--body-small--line-height: var(--Typography--Primitives--line-height--160);
+  --Typography--Semantics--Decorative--body-small--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Decorative--label--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--label--font-size: var(--Typography--Primitives--font-size--14);
+  --Typography--Semantics--Decorative--label--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Decorative--label--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Decorative--label--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Decorative--caption--font-family: var(--Typography--Primitives--font-family--source-serif-4);
+  --Typography--Semantics--Decorative--caption--font-size: var(--Typography--Primitives--font-size--11);
+  --Typography--Semantics--Decorative--caption--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Decorative--caption--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Decorative--caption--letter-spacing: var(--Typography--Primitives--letter-spacing--0_1);
+
+  /* --- Main (Inter) --- */
+  --Typography--Semantics--Main--display--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--display--font-size: var(--Typography--Primitives--font-size--48);
+  --Typography--Semantics--Main--display--font-weight: var(--Typography--Primitives--font-weight--600);
+  --Typography--Semantics--Main--display--line-height: var(--Typography--Primitives--line-height--110);
+  --Typography--Semantics--Main--display--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_03);
+
+  --Typography--Semantics--Main--heading-1--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--heading-1--font-size: var(--Typography--Primitives--font-size--36);
+  --Typography--Semantics--Main--heading-1--font-weight: var(--Typography--Primitives--font-weight--600);
+  --Typography--Semantics--Main--heading-1--line-height: var(--Typography--Primitives--line-height--115);
+  --Typography--Semantics--Main--heading-1--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_02);
+
+  --Typography--Semantics--Main--heading-2--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--heading-2--font-size: var(--Typography--Primitives--font-size--24);
+  --Typography--Semantics--Main--heading-2--font-weight: var(--Typography--Primitives--font-weight--600);
+  --Typography--Semantics--Main--heading-2--line-height: var(--Typography--Primitives--line-height--125);
+  --Typography--Semantics--Main--heading-2--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_02);
+
+  --Typography--Semantics--Main--heading-3--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--heading-3--font-size: var(--Typography--Primitives--font-size--18);
+  --Typography--Semantics--Main--heading-3--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Main--heading-3--line-height: var(--Typography--Primitives--line-height--140);
+  --Typography--Semantics--Main--heading-3--letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_01);
+
+  --Typography--Semantics--Main--heading-4--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--heading-4--font-size: var(--Typography--Primitives--font-size--16);
+  --Typography--Semantics--Main--heading-4--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Main--heading-4--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Main--heading-4--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Main--body-large--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--body-large--font-size: var(--Typography--Primitives--font-size--17);
+  --Typography--Semantics--Main--body-large--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Main--body-large--line-height: var(--Typography--Primitives--line-height--170);
+  --Typography--Semantics--Main--body-large--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Main--body--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--body--font-size: var(--Typography--Primitives--font-size--15);
+  --Typography--Semantics--Main--body--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Main--body--line-height: var(--Typography--Primitives--line-height--165);
+  --Typography--Semantics--Main--body--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Main--body-small--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--body-small--font-size: var(--Typography--Primitives--font-size--13);
+  --Typography--Semantics--Main--body-small--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Main--body-small--line-height: var(--Typography--Primitives--line-height--160);
+  --Typography--Semantics--Main--body-small--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Main--label--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--label--font-size: var(--Typography--Primitives--font-size--14);
+  --Typography--Semantics--Main--label--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Main--label--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Main--label--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  --Typography--Semantics--Main--caption--font-family: var(--Typography--Primitives--font-family--inter);
+  --Typography--Semantics--Main--caption--font-size: var(--Typography--Primitives--font-size--11);
+  --Typography--Semantics--Main--caption--font-weight: var(--Typography--Primitives--font-weight--500);
+  --Typography--Semantics--Main--caption--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Main--caption--letter-spacing: var(--Typography--Primitives--letter-spacing--0_1);
+
+  /* --- Code (Monospace) --- */
+  --Typography--Semantics--Main--code--font-family: var(--Typography--Primitives--font-family--monospace);
+  --Typography--Semantics--Main--code--font-size: var(--Typography--Primitives--font-size--13);
+  --Typography--Semantics--Main--code--font-weight: var(--Typography--Primitives--font-weight--400);
+  --Typography--Semantics--Main--code--line-height: var(--Typography--Primitives--line-height--150);
+  --Typography--Semantics--Main--code--letter-spacing: var(--Typography--Primitives--letter-spacing--0);
+
+  /* Spacing: Primitives */
+  --Spacing--Primitives--space-0: 0px;
+  --Spacing--Primitives--space-0_5: 2px;
+  --Spacing--Primitives--space-1: 4px;
+  --Spacing--Primitives--space-1_5: 6px;
+  --Spacing--Primitives--space-2: 8px;
+  --Spacing--Primitives--space-2_5: 10px;
+  --Spacing--Primitives--space-3: 12px;
+  --Spacing--Primitives--space-3_5: 14px;
+  --Spacing--Primitives--space-4: 16px;
+  --Spacing--Primitives--space-5: 20px;
+  --Spacing--Primitives--space-6: 24px;
+  --Spacing--Primitives--space-7: 28px;
+  --Spacing--Primitives--space-8: 32px;
+  --Spacing--Primitives--space-10: 40px;
+  --Spacing--Primitives--space-12: 48px;
+  --Spacing--Primitives--space-14: 56px;
+  --Spacing--Primitives--space-16: 64px;
+  --Spacing--Primitives--space-20: 80px;
+  --Spacing--Primitives--space-24: 96px;
+
+  /* Spacing: Semantics */
+  --Spacing--Semantics--gap-inline-xs: var(--Spacing--Primitives--space-1);
+  --Spacing--Semantics--gap-inline-sm: var(--Spacing--Primitives--space-1_5);
+  --Spacing--Semantics--gap-inline-md: var(--Spacing--Primitives--space-2);
+  --Spacing--Semantics--gap-inline-lg: var(--Spacing--Primitives--space-3);
+  --Spacing--Semantics--gap-stack-xs: var(--Spacing--Primitives--space-1);
+  --Spacing--Semantics--gap-stack-sm: var(--Spacing--Primitives--space-1_5);
+  --Spacing--Semantics--gap-stack-md: var(--Spacing--Primitives--space-3);
+  --Spacing--Semantics--gap-stack-lg: var(--Spacing--Primitives--space-6);
+  --Spacing--Semantics--padding-input-x: var(--Spacing--Primitives--space-3_5);
+  --Spacing--Semantics--padding-input-y: var(--Spacing--Primitives--space-2_5);
+  --Spacing--Semantics--padding-button-x: var(--Spacing--Primitives--space-5);
+  --Spacing--Semantics--padding-button-y: var(--Spacing--Primitives--space-2_5);
+  --Spacing--Semantics--padding-card-sm: var(--Spacing--Primitives--space-6);
+  --Spacing--Semantics--padding-card-lg: var(--Spacing--Primitives--space-7);
+  --Spacing--Semantics--section-gap-sm: var(--Spacing--Primitives--space-10);
+  --Spacing--Semantics--section-gap-lg: var(--Spacing--Primitives--space-14);
+  --Spacing--Semantics--page-padding-x-sm: var(--Spacing--Primitives--space-6);
+  --Spacing--Semantics--page-padding-x-lg: var(--Spacing--Primitives--space-10);
+  --Spacing--Semantics--page-top-sm: var(--Spacing--Primitives--space-14);
+  --Spacing--Semantics--page-top-lg: var(--Spacing--Primitives--space-20);
+
+  /* Radius: Primitives */
+  --Radius--Primitives--radius-none: 0px;
+  --Radius--Primitives--radius-xs: 2px;
+  --Radius--Primitives--radius-sm: 4px;
+  --Radius--Primitives--radius-md: 8px;
+  --Radius--Primitives--radius-DEFAULT: 8px;
+  --Radius--Primitives--radius-lg: 12px;
+  --Radius--Primitives--radius-xl: 16px;
+  --Radius--Primitives--radius-2xl: 16px;
+  --Radius--Primitives--radius-3xl: 24px;
+  --Radius--Primitives--radius-full: 10000px;
+
+  /* Radius: Semantics */
+  --Radius--Semantics--radius-button-sm: var(--Radius--Primitives--radius-md);
+  --Radius--Semantics--radius-button: var(--Radius--Primitives--radius-lg);
+  --Radius--Semantics--radius-input: var(--Radius--Primitives--radius-lg);
+  --Radius--Semantics--radius-card: var(--Radius--Primitives--radius-2xl);
+  --Radius--Semantics--radius-modal: var(--Radius--Primitives--radius-2xl);
+  --Radius--Semantics--radius-badge: var(--Radius--Primitives--radius-full);
+  --Radius--Semantics--radius-avatar: var(--Radius--Primitives--radius-full);
+  --Radius--Semantics--radius-nav-item: var(--Radius--Primitives--radius-full);
+  --Radius--Semantics--radius-tooltip: var(--Radius--Primitives--radius-md);
+  --Radius--Semantics--radius-icon-box: var(--Radius--Primitives--radius-xl);
+  --Radius--Semantics--radius-switch: var(--Radius--Primitives--radius-full);
+  --Radius--Semantics--radius-checkbox: var(--Radius--Primitives--radius-md);
+
+  /* Effects: Primitives */
+
+  /* --- Shadows --- */
+  --Effects--Primitives--shadow-none: none;
+  --Effects--Primitives--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --Effects--Primitives--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --Effects--Primitives--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --Effects--Primitives--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --Effects--Primitives--shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+  /* --- Blur --- */
+  --Effects--Primitives--blur-none: blur(0);
+  --Effects--Primitives--blur-sm: blur(4px);
+  --Effects--Primitives--blur-md: blur(8px);
+  --Effects--Primitives--blur-lg: blur(16px);
+  --Effects--Primitives--blur-xl: blur(24px);
+
+  /* --- Transitions --- */
+  --Effects--Primitives--transition-fast: all 150ms ease-out;
+  --Effects--Primitives--transition-normal: all 200ms ease-in-out;
+  --Effects--Primitives--transition-smooth: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --Effects--Primitives--transition-slow: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Effects: Semantics */
+  --Effects--Semantics--shadow-card: var(--Effects--Primitives--shadow-none);
+  --Effects--Semantics--shadow-card-hover: var(--Effects--Primitives--shadow-lg);
+  --Effects--Semantics--shadow-dropdown: var(--Effects--Primitives--shadow-lg);
+  --Effects--Semantics--shadow-modal: var(--Effects--Primitives--shadow-xl);
+  --Effects--Semantics--shadow-tooltip: var(--Effects--Primitives--shadow-md);
+  --Effects--Semantics--shadow-button-active: var(--Effects--Primitives--shadow-xs);
+  --Effects--Semantics--blur-header: var(--Effects--Primitives--blur-sm);
+  --Effects--Semantics--blur-overlay: var(--Effects--Primitives--blur-md);
+  --Effects--Semantics--transition-button: var(--Effects--Primitives--transition-fast);
+  --Effects--Semantics--transition-dropdown: var(--Effects--Primitives--transition-normal);
+  --Effects--Semantics--transition-modal: var(--Effects--Primitives--transition-smooth);
+  --Effects--Semantics--transition-page: var(--Effects--Primitives--transition-slow);
+}

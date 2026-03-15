@@ -1,0 +1,432 @@
+/* ---------- Filter Modal ---------- */
+.filter-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.filter-modal.is-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: var(--Effects--Semantics--blur-overlay);
+    -webkit-backdrop-filter: var(--Effects--Semantics--blur-overlay);
+    animation: fadeIn 0.2s ease;
+}
+
+.filter-modal__panel {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: var(--Radius--Semantics--radius-modal);
+    width: 820px;
+    max-width: 92vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--Effects--Semantics--shadow-modal);
+    animation: modalSlideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.filter-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--Spacing--Primitives--space-5) var(--Spacing--Primitives--space-6);
+    border-bottom: 1px solid var(--Primitives--neutral--100);
+    flex-shrink: 0;
+}
+
+.filter-modal__title {
+    font-family: var(--Typography--Semantics--Main--heading-3--font-family);
+    font-size: var(--Typography--Semantics--Main--heading-3--font-size);
+    font-weight: var(--Typography--Semantics--Main--heading-3--font-weight);
+    color: var(--Primitives--neutral--950);
+}
+
+.filter-modal__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--Radius--Primitives--radius-DEFAULT);
+    color: var(--Primitives--neutral--400);
+    transition: var(--Effects--Semantics--transition-button);
+}
+
+.filter-modal__close:hover {
+    background: var(--Primitives--neutral--50);
+    color: var(--Primitives--neutral--700);
+}
+
+/* Modal layout */
+.filter-modal__layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.filter-modal__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-1);
+    padding: var(--Spacing--Primitives--space-2) var(--Spacing--Primitives--space-6);
+    border-bottom: 1px solid var(--Primitives--neutral--100);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.filter-modal__nav-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: var(--Typography--Primitives--font-size--13);
+    font-weight: var(--Typography--Primitives--font-weight--400);
+    color: var(--Primitives--neutral--500);
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--Radius--Primitives--radius-full);
+    cursor: pointer;
+    transition: var(--Effects--Semantics--transition-button);
+    white-space: nowrap;
+}
+
+.filter-modal__nav-item:hover {
+    color: var(--Primitives--neutral--900);
+    background: var(--Primitives--neutral--50);
+}
+
+.filter-modal__nav-item.is-active {
+    color: var(--Primitives--neutral--950);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    background: var(--Primitives--neutral--100);
+    border-color: var(--Primitives--neutral--200);
+}
+
+.filter-modal__nav-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 12px;
+    background: var(--Primitives--neutral--950);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    line-height: normal;
+    padding-top: 1px;
+}
+
+.filter-modal__nav-item.is-active .filter-modal__nav-count {
+    background: var(--Primitives--neutral--700);
+}
+
+.filter-modal__nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--Primitives--neutral--950);
+    margin-left: 8px;
+}
+
+.filter-modal__nav-item.is-active .filter-modal__nav-dot {
+    background: var(--Primitives--neutral--700);
+}
+
+.filter-modal__body {
+    padding: var(--Spacing--Primitives--space-5) var(--Spacing--Primitives--space-6);
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    min-height: 0;
+}
+
+.filter-modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--Spacing--Primitives--space-4) var(--Spacing--Primitives--space-6);
+    border-top: 1px solid var(--Primitives--neutral--100);
+    flex-shrink: 0;
+}
+
+.filter-modal__reset {
+    color: var(--Primitives--neutral--400);
+    font-size: var(--Typography--Primitives--font-size--14);
+    border: none;
+}
+
+.filter-modal__reset:hover {
+    color: var(--Primitives--neutral--700);
+}
+
+.filter-modal__apply {
+    min-width: 120px;
+}
+
+/* Filter modal content */
+.modal-filter-group {
+    margin-bottom: var(--Spacing--Primitives--space-5);
+}
+
+.modal-filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.modal-filter-group__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--Spacing--Primitives--space-2);
+}
+
+.modal-filter-group__title {
+    font-size: var(--Typography--Primitives--font-size--12);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    color: var(--Primitives--neutral--400);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.modal-filter-group__reset {
+    font-size: var(--Typography--Primitives--font-size--12);
+    color: var(--Primitives--neutral--400);
+    cursor: pointer;
+    transition: var(--Effects--Semantics--transition-button);
+    padding: 4px 12px;
+    border-radius: var(--Radius--Primitives--radius-full);
+    display: none;
+}
+
+.modal-filter-group__reset.is-visible {
+    display: inline-flex;
+}
+
+.modal-filter-group__reset:hover {
+    color: var(--Primitives--neutral--700);
+    background: var(--Primitives--neutral--50);
+}
+
+.modal-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Spacing--Primitives--space-1_5);
+}
+
+.modal-filter-chip {
+    padding: 0 16px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: var(--Radius--Primitives--radius-full);
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--400);
+    color: var(--Primitives--neutral--600);
+    background: var(--Primitives--neutral--50);
+    border: 1px solid var(--Primitives--neutral--150);
+    cursor: pointer;
+    transition: var(--Effects--Semantics--transition-button);
+}
+
+.modal-filter-chip:hover {
+    border-color: var(--Primitives--neutral--400);
+    color: var(--Primitives--neutral--900);
+}
+
+.modal-filter-chip.is-active {
+    background: var(--Primitives--neutral--950);
+    color: #fff;
+    border-color: var(--Primitives--neutral--950);
+}
+
+/* City filter search */
+.modal-city-search-wrap {
+    position: relative;
+    height: 36px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.modal-city-search-wrap.is-collapsed {
+    width: 36px;
+    border-radius: 50%;
+}
+
+.modal-city-search-wrap.is-expanded {
+    width: 252px;
+}
+
+.modal-city-search {
+    width: 100%;
+    height: 100%;
+    padding: 0 36px 0 16px;
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: 36px;
+    font-family: inherit;
+    font-size: var(--Typography--Primitives--font-size--14);
+    color: var(--Primitives--neutral--950);
+    background: var(--Primitives--neutral--50);
+    outline: none;
+    transition: var(--Effects--Semantics--transition-button), background-color 0.3s, border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.modal-city-search::placeholder {
+    color: var(--Primitives--neutral--400);
+}
+
+.modal-city-search:focus {
+    border-color: var(--Primitives--neutral--400);
+    background: #fff;
+}
+
+.modal-city-search-wrap.is-collapsed .modal-city-search {
+    padding: 0;
+    cursor: pointer;
+    background: var(--Primitives--neutral--50);
+    /* default tag background */
+    border-color: var(--Primitives--neutral--150);
+    /* tag border color */
+    color: transparent;
+    /* hide text */
+}
+
+.modal-city-search-wrap.is-collapsed .modal-city-search::placeholder {
+    color: transparent;
+}
+
+.modal-city-search-wrap.is-collapsed:hover .modal-city-search {
+    border-color: var(--Primitives--neutral--400);
+    color: transparent;
+    /* remain transparent on hover */
+}
+
+.modal-city-search-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Primitives--neutral--600);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: none;
+    /* Let the search input handle the click while collapsed */
+}
+
+.modal-city-search-clear {
+    position: absolute;
+    right: 4px;
+    /* match the 34px total height visually better */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Primitives--neutral--400);
+    transition: var(--Effects--Semantics--transition-button);
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modal-city-search-wrap:hover .modal-city-search-clear {
+    color: var(--Primitives--neutral--800);
+}
+
+.modal-city-search-clear:hover {
+    color: var(--Primitives--neutral--950);
+    background: var(--Primitives--neutral--100);
+}
+
+/* Salary range */
+.modal-salary-range {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-2);
+}
+
+.modal-salary-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-full);
+    font-family: inherit;
+    font-size: var(--Typography--Primitives--font-size--14);
+    color: var(--Primitives--neutral--950);
+    background: var(--Primitives--neutral--50);
+    outline: none;
+    transition: var(--Effects--Semantics--transition-button);
+}
+
+.modal-salary-input::placeholder {
+    color: var(--Primitives--neutral--400);
+}
+
+.modal-salary-input:focus {
+    border-color: var(--Primitives--neutral--400);
+    background: #fff;
+}
+
+.modal-salary-sep {
+    color: var(--Primitives--neutral--300);
+    font-size: var(--Typography--Primitives--font-size--14);
+}
+
+/* ---------- Filter Modal Responsive ---------- */
+@media (max-width: 900px) {
+    .filter-modal__panel {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+        height: 100%;
+    }
+
+    .filter-modal__nav {
+        padding: var(--Spacing--Primitives--space-1_5) var(--Spacing--Primitives--space-3);
+        gap: var(--Spacing--Primitives--space-1);
+    }
+
+    .filter-modal__nav-item {
+        padding: 8px 12px;
+        font-size: var(--Typography--Primitives--font-size--12);
+    }
+
+    .modal-city-search-wrap {
+        width: 100%;
+    }
+
+    .modal-salary-range {
+        gap: 8px;
+    }
+
+    .modal-salary-input {
+        min-width: 0;
+    }
+}

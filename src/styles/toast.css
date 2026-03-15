@@ -1,0 +1,39 @@
+/* ---------- Success Toast ---------- */
+.post-toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-2);
+    padding: 16px 24px;
+    background: var(--Primitives--neutral--950);
+    color: #fff;
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    border-radius: var(--Radius--Primitives--radius-full);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.post-toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.post-toast__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--Primitives--green--500);
+    flex-shrink: 0;
+}

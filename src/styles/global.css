@@ -1,0 +1,212 @@
+/* ===================================================
+   стажёр.рф — Global Styles
+   Reset, base, shared components
+   =================================================== */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--Typography--Primitives--font-family--inter), system-ui, sans-serif;
+    font-size: var(--Typography--Primitives--font-size--15);
+    font-weight: var(--Typography--Primitives--font-weight--400);
+    line-height: var(--Typography--Primitives--line-height--165);
+    color: var(--Primitives--neutral--950);
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.hide-mobile {
+    display: inline;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--Spacing--Semantics--gap-inline-md);
+    font-family: var(--Typography--Semantics--Main--label--font-family);
+    font-size: var(--Typography--Semantics--Main--label--font-size);
+    font-weight: var(--Typography--Semantics--Main--label--font-weight);
+    line-height: 1;
+    padding: var(--Spacing--Semantics--padding-button-y) var(--Spacing--Semantics--padding-button-x);
+    border-radius: var(--Radius--Semantics--radius-button);
+    transition: var(--Effects--Semantics--transition-button);
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--primary {
+    background: var(--Semantics--primary);
+    color: var(--Semantics--primary-foreground);
+    border: 1.5px solid var(--Semantics--primary);
+}
+
+.btn--primary:hover {
+    background: var(--Primitives--neutral--800);
+    border-color: var(--Primitives--neutral--800);
+}
+
+.btn--primary:active {
+    box-shadow: var(--Effects--Semantics--shadow-button-active);
+    transform: scale(0.98);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--Primitives--neutral--950);
+    border: 1.5px solid var(--Primitives--neutral--300);
+}
+
+.btn--outline:hover {
+    border-color: var(--Primitives--neutral--950);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--Primitives--neutral--700);
+    border: 1.5px solid transparent;
+    padding-left: var(--Spacing--Primitives--space-3);
+    padding-right: var(--Spacing--Primitives--space-3);
+}
+
+.btn--ghost:hover {
+    color: var(--Primitives--neutral--950);
+}
+
+.btn--lg {
+    padding: var(--Spacing--Primitives--space-3_5) var(--Spacing--Primitives--space-7);
+    font-size: var(--Typography--Primitives--font-size--15);
+}
+
+.btn--full {
+    width: 100%;
+}
+
+/* ---------- Tags ---------- */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: var(--Radius--Semantics--radius-badge);
+    font-size: var(--Typography--Primitives--font-size--12);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.tag--it {
+    background: var(--Primitives--blue--alpha-10);
+    color: var(--Primitives--blue--700);
+}
+
+.tag--design {
+    background: var(--Primitives--violet--alpha-10);
+    color: var(--Primitives--violet--700);
+}
+
+.tag--marketing {
+    background: var(--Primitives--orange--alpha-10);
+    color: var(--Primitives--orange--700);
+}
+
+.tag--finance {
+    background: var(--Primitives--green--alpha-10);
+    color: var(--Primitives--green--700);
+}
+
+.tag--analytics {
+    background: var(--Primitives--cyan--alpha-10);
+    color: var(--Primitives--cyan--700);
+}
+
+.tag--neutral {
+    background: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--600);
+}
+
+/* ---------- Shared animations ---------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Responsive: shared ---------- */
+@media (max-width: 900px) {
+    .hide-mobile {
+        display: none;
+    }
+}

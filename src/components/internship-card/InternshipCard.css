@@ -1,0 +1,122 @@
+/* ---------- Card ---------- */
+.card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--Primitives--neutral--150);
+    border-radius: var(--Radius--Semantics--radius-card);
+    padding: var(--Spacing--Primitives--space-4);
+    transition: var(--Effects--Semantics--transition-button);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-4);
+}
+
+.card:hover {
+    border-color: var(--Primitives--neutral--300);
+    box-shadow: var(--Effects--Semantics--shadow-card-hover);
+    transform: translateY(-2px);
+}
+
+/* Card top: company row */
+.card__company {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-3);
+}
+
+.card__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--Radius--Primitives--radius-DEFAULT);
+    background: var(--Primitives--neutral--100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--Typography--Primitives--font-size--13);
+    font-weight: var(--Typography--Primitives--font-weight--600);
+    color: var(--Primitives--neutral--500);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__company-name {
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    color: var(--Primitives--neutral--600);
+}
+
+/* Card body */
+.card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-2);
+    flex-grow: 1;
+}
+
+.card__title {
+    font-family: var(--Typography--Semantics--Main--heading-3--font-family);
+    font-size: var(--Typography--Semantics--Main--heading-3--font-size);
+    font-weight: var(--Typography--Semantics--Main--heading-3--font-weight);
+    line-height: var(--Typography--Semantics--Main--heading-3--line-height);
+    letter-spacing: var(--Typography--Semantics--Main--heading-3--letter-spacing);
+    color: var(--Primitives--neutral--950);
+}
+
+.card__salary {
+    font-size: var(--Typography--Primitives--font-size--15);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    color: var(--Primitives--neutral--500);
+}
+
+.card__salary--unpaid {
+    font-weight: var(--Typography--Primitives--font-weight--400);
+    color: var(--Primitives--neutral--400);
+}
+
+/* Card tags */
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Spacing--Primitives--space-1_5);
+    margin-top: var(--Spacing--Primitives--space-1);
+}
+
+/* Bookmark button — top-right corner of card */
+.card__fav-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--Radius--Primitives--radius-DEFAULT);
+    border: none;
+    background: transparent;
+    color: var(--Primitives--neutral--300);
+    cursor: pointer;
+    transition: var(--Effects--Semantics--transition-button);
+    z-index: 2;
+}
+
+.card__fav-btn:hover {
+    color: var(--Primitives--neutral--500);
+    background: var(--Primitives--neutral--100);
+}
+
+.card__fav-btn.is-active {
+    color: var(--Primitives--neutral--950);
+}
+
+.card__fav-btn.is-active:hover {
+    color: var(--Primitives--neutral--700);
+    background: var(--Primitives--neutral--100);
+}

@@ -1,0 +1,77 @@
+/* ---------- Hero ---------- */
+.hero {
+    padding: 120px 80px;
+    text-align: center;
+}
+
+.hero__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero__logo {
+    height: 16px;
+    width: auto;
+    margin-bottom: var(--Spacing--Primitives--space-4);
+    display: inline-block;
+}
+
+.hero__title {
+    font-family: var(--Typography--Semantics--Decorative--display--font-family);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    line-height: var(--Typography--Semantics--Decorative--display--line-height);
+    letter-spacing: var(--Typography--Semantics--Decorative--display--letter-spacing);
+    color: var(--Primitives--neutral--950);
+    margin-bottom: var(--Spacing--Primitives--space-5);
+}
+
+.hero__subtitle {
+    font-size: var(--Typography--Semantics--Main--body-large--font-size);
+    line-height: var(--Typography--Semantics--Main--body-large--line-height);
+    color: var(--Primitives--neutral--500);
+    margin-bottom: var(--Spacing--Primitives--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--Spacing--Primitives--space-3);
+    flex-wrap: wrap;
+}
+
+/* ---------- Hero Responsive ---------- */
+@media (max-width: 900px) {
+    .hero {
+        padding: 100px var(--Spacing--Semantics--page-padding-x-sm);
+        padding-bottom: 80px;
+    }
+
+    .hero__title {
+        font-size: clamp(28px, 7vw, 40px);
+    }
+}
+
+@media (max-width: 720px) {
+    .hero {
+        padding-top: var(--Spacing--Primitives--space-4);
+        padding-bottom: var(--Spacing--Primitives--space-8);
+        /* min-height is computed and set directly in React to prevent viewport resize jumping */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+}

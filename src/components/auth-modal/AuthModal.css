@@ -1,0 +1,343 @@
+/* ---------- Auth Modal ---------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: var(--Effects--Semantics--blur-overlay);
+    -webkit-backdrop-filter: var(--Effects--Semantics--blur-overlay);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.is-open {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Primitives--neutral--400);
+    border-radius: var(--Radius--Primitives--radius-DEFAULT);
+    transition: var(--Effects--Semantics--transition-button);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--800);
+}
+
+.auth-modal-box {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: var(--Radius--Semantics--radius-modal);
+    width: 440px;
+    max-width: 92vw;
+    display: flex;
+    flex-direction: column;
+    padding: var(--Spacing--Primitives--space-8);
+    box-shadow: var(--Effects--Semantics--shadow-modal);
+    animation: modalSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.auth-header {
+    position: relative;
+    margin-bottom: var(--Spacing--Primitives--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+}
+
+.auth-header--role {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.auth-title {
+    font-family: var(--Typography--Semantics--Main--heading-2--font-family);
+    font-size: var(--Typography--Semantics--Main--heading-2--font-size);
+    font-weight: var(--Typography--Semantics--Main--heading-2--font-weight);
+    color: var(--Primitives--neutral--950);
+}
+
+.auth-subtitle {
+    font-size: var(--Typography--Primitives--font-size--14);
+    color: var(--Primitives--neutral--500);
+    margin-top: 4px;
+    margin-bottom: var(--Spacing--Primitives--space-6);
+}
+
+.auth-socials {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-3);
+    margin-bottom: var(--Spacing--Primitives--space-4);
+}
+
+.auth-social-btn {
+    width: 100%;
+    border-radius: var(--Radius--Primitives--radius-full);
+    padding: 12px 16px;
+    font-size: var(--Typography--Primitives--font-size--15);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+}
+
+.auth-social-btn svg {
+    flex-shrink: 0;
+}
+
+.auth-separator {
+    position: relative;
+    text-align: center;
+    margin: var(--Spacing--Primitives--space-5) 0;
+}
+
+.auth-separator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--Primitives--neutral--200);
+}
+
+.auth-separator span {
+    position: relative;
+    background: #fff;
+    padding: 0 12px;
+    color: var(--Primitives--neutral--400);
+    font-size: var(--Typography--Primitives--font-size--13);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-3);
+    text-align: left;
+}
+
+.auth-fio-form {
+    gap: var(--Spacing--Primitives--space-3);
+}
+
+.auth-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px 16px;
+    padding-right: 48px;
+    border: 1px solid transparent;
+    border-radius: var(--Radius--Primitives--radius-full);
+    font-family: inherit;
+    font-size: var(--Typography--Primitives--font-size--15);
+    background: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--950);
+    transition: var(--Effects--Semantics--transition-button);
+    outline: none;
+}
+
+.auth-input--with-actions {
+    padding-right: 72px;
+}
+
+.auth-input::placeholder {
+    color: var(--Primitives--neutral--400);
+}
+
+.auth-input:hover {
+    background: var(--Primitives--neutral--200);
+}
+
+.auth-input:focus {
+    background: var(--Primitives--neutral--100);
+    border-color: var(--Primitives--neutral--950);
+}
+
+.auth-input-actions {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.auth-input-icon-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Primitives--neutral--400);
+    transition: var(--Effects--Semantics--transition-button);
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.auth-input-wrapper>.auth-input-icon-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.auth-input-wrapper:hover .auth-input-icon-btn,
+.auth-input-wrapper:hover .auth-input,
+.auth-input-wrapper:hover .auth-input::placeholder {
+    color: var(--Primitives--neutral--800);
+}
+
+.auth-input-icon-btn:hover {
+    color: var(--Primitives--neutral--950);
+    background: var(--Primitives--neutral--100);
+}
+
+.auth-input:focus~.auth-input-icon-btn,
+.auth-input:focus~.auth-input-actions .auth-input-icon-btn {
+    color: var(--Primitives--neutral--600);
+}
+
+.auth-submit {
+    padding: 16px;
+    font-size: var(--Typography--Primitives--font-size--15);
+    border-radius: var(--Radius--Primitives--radius-full);
+}
+
+.auth-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.auth-back {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--Primitives--neutral--400);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--Effects--Semantics--transition-button);
+}
+
+.auth-back:hover {
+    color: var(--Primitives--neutral--800);
+}
+
+.auth-roles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-3);
+}
+
+.auth-role-card {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-4);
+    width: 100%;
+    padding: 20px;
+    border: 1.5px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Semantics--radius-card);
+    transition: var(--Effects--Semantics--transition-button);
+    background: transparent;
+    text-align: left;
+}
+
+.auth-role-card:hover {
+    border-color: var(--Primitives--neutral--400);
+    background: var(--Primitives--neutral--50);
+}
+
+.auth-role-card.is-active {
+    border-color: var(--Primitives--neutral--950);
+    background: var(--Primitives--neutral--50);
+}
+
+.auth-role-icon {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-role-text {
+    font-size: var(--Typography--Primitives--font-size--16);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    color: var(--Primitives--neutral--950);
+}
+
+.auth-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.auth-checkbox input {
+    margin-top: 2px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--Primitives--neutral--950);
+}
+
+.auth-checkbox-text {
+    font-size: var(--Typography--Primitives--font-size--13);
+    color: var(--Primitives--neutral--600);
+    line-height: 1.4;
+}
+
+.auth-checkbox-text a {
+    color: var(--Primitives--neutral--950);
+    text-decoration: underline;
+}
+
+.auth-forgot {
+    text-align: center;
+    font-size: var(--Typography--Primitives--font-size--13);
+}
+
+.auth-forgot a {
+    color: var(--Primitives--neutral--600);
+    transition: var(--Effects--Semantics--transition-button);
+}
+
+.auth-forgot a:hover {
+    color: var(--Primitives--neutral--950);
+    text-decoration: underline;
+}
+
+.form-label {
+    display: block;
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    color: var(--Primitives--neutral--800);
+    margin-bottom: 8px;
+}
+
+.required {
+    color: var(--Primitives--red--500);
+}
