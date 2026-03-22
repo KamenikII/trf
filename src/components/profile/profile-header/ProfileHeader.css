@@ -1,0 +1,67 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing--Primitives--space-6);
+  margin-bottom: var(--Spacing--Primitives--space-10);
+}
+
+.profile-header__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--Radius--Semantics--radius-avatar);
+  background: var(--Primitives--violet--600);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--Typography--Primitives--font-family--inter);
+  font-size: var(--Typography--Primitives--font-size--24);
+  font-weight: var(--Typography--Primitives--font-weight--600);
+  letter-spacing: var(--Typography--Primitives--letter-spacing--neg-0_01);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.profile-header__info {
+  min-width: 0;
+}
+
+.profile-header__name {
+  font-family: var(--Typography--Semantics--Main--heading-2--font-family);
+  font-size: var(--Typography--Semantics--Main--heading-2--font-size);
+  font-weight: var(--Typography--Semantics--Main--heading-2--font-weight);
+  line-height: var(--Typography--Semantics--Main--heading-2--line-height);
+  letter-spacing: var(--Typography--Semantics--Main--heading-2--letter-spacing);
+  color: var(--Primitives--neutral--950);
+  margin: 0 0 var(--Spacing--Primitives--space-1);
+}
+
+.profile-header__meta {
+  font-family: var(--Typography--Semantics--Main--body-small--font-family);
+  font-size: var(--Typography--Semantics--Main--body-small--font-size);
+  font-weight: var(--Typography--Semantics--Main--body-small--font-weight);
+  line-height: var(--Typography--Semantics--Main--body-small--line-height);
+  color: var(--Primitives--neutral--500);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .profile-header {
+    gap: var(--Spacing--Primitives--space-4);
+    margin-bottom: var(--Spacing--Primitives--space-8);
+  }
+
+  .profile-header__avatar {
+    width: var(--Spacing--Primitives--space-14);
+    height: var(--Spacing--Primitives--space-14);
+    font-size: var(--Typography--Primitives--font-size--18);
+  }
+
+  .profile-header__name {
+    font-size: var(--Typography--Primitives--font-size--20);
+  }
+
+  .profile-header__meta {
+    font-size: var(--Typography--Primitives--font-size--12);
+  }
+}

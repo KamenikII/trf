@@ -1,0 +1,24 @@
+.profile-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--Spacing--Primitives--space-20) var(--Spacing--Primitives--space-6);
+  gap: var(--Spacing--Primitives--space-3);
+}
+
+.profile-placeholder__text {
+  font-family: var(--Typography--Semantics--Main--heading-4--font-family);
+  font-size: var(--Typography--Semantics--Main--heading-4--font-size);
+  font-weight: var(--Typography--Semantics--Main--heading-4--font-weight);
+  color: var(--Primitives--neutral--600);
+  margin: var(--Spacing--Primitives--space-2) 0 0;
+}
+
+.profile-placeholder__hint {
+  font-family: var(--Typography--Semantics--Main--body-small--font-family);
+  font-size: var(--Typography--Semantics--Main--body-small--font-size);
+  color: var(--Primitives--neutral--400);
+  margin: 0;
+}

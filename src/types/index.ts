@@ -48,6 +48,15 @@ export interface IFilters {
 export interface IUser {
     id: string;
     email: string;
-    fio: string;
+    firstName: string;
+    lastName: string;
+    middleName?: string;
     role: 'student' | 'company' | null;
+    university?: string;
+    course?: string;
+    direction?: string;
+    rating?: number;
+    earned?: number;
+    coins?: number;
+    skills?: string[];
 }
