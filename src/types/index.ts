@@ -46,8 +46,16 @@ export interface IFilters {
 }
 
 export interface IUser {
-    id: string;
+    id: string | number;
     email: string;
-    fio: string;
+    firstName?: string;
+    lastName?: string;
+    middleName?: string;
     role: 'student' | 'company' | null;
+    avatar?: string | null;
+    university?: string;
+    direction?: string;
+    course?: number;
+    skills?: string[];
+    password?: string;
 }

@@ -48,3 +48,15 @@ export const getUserByEmail = (email) => {
     const users = getUsers();
     return users.find(u => u.email.toLowerCase() === email.toLowerCase());
 };
+
+// Функция для обновления данных пользователя
+export const updateUser = (id, updates) => {
+    const users = getUsers();
+    const idx = users.findIndex(u => u.id === id);
+    if (idx !== -1) {
+        users[idx] = { ...users[idx], ...updates };
+        localStorage.setItem("stajer_users", JSON.stringify(users));
+        return users[idx];
+    }
+    return null;
+};

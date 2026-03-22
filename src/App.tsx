@@ -1,5 +1,5 @@
-import { useState, lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Outlet } from "react-router-dom";
 import { IInternship } from "./types";
 import { useInternships } from "./context/InternshipContext";
 import { useAuth } from "./context/AuthContext";
@@ -8,14 +8,13 @@ import { useFilters } from "./context/FilterContext";
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { ScrollTopButton } from './components/scroll-top-button/ScrollTopButton';
-import { HomePage } from "./pages/HomePage";
-import { FavoritesPage } from "./pages/FavoritesPage";
 
 // Lazy-loaded modals — only loaded when first opened
 const FilterModal = lazy(() => import('./components/filter-modal/FilterModal').then(m => ({ default: m.FilterModal })));
 const PostModal = lazy(() => import('./components/post-modal/PostModal').then(m => ({ default: m.PostModal })));
 const DetailModal = lazy(() => import('./components/detail-modal/DetailModal').then(m => ({ default: m.DetailModal })));
 const AuthModal = lazy(() => import('./components/auth-modal/AuthModal').then(m => ({ default: m.AuthModal })));
+const ConfirmModal = lazy(() => import('./components/confirm-modal/ConfirmModal').then(m => ({ default: m.ConfirmModal })));
 
 export default function App() {
   const { addInternship } = useInternships();
@@ -26,7 +25,8 @@ export default function App() {
     postModalOpen, closePostModal,
     authModalOpen, closeAuthModal,
     detailItem, closeDetail,
-    toastVisible, showToast,
+    toastVisible, toastMessage, showToast,
+    confirmModal,
   } = useModals();
 
   const handlePostSubmit = (newInternship: IInternship) => {
@@ -39,10 +39,7 @@ export default function App() {
       <Header />
 
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage  />} />
-          <Route path="/favorites" element={<FavoritesPage  />} />
-        </Routes>
+        <Outlet />
       </main>
 
       <Footer />
@@ -83,6 +80,10 @@ export default function App() {
             onLogin={login}
           />
         )}
+
+        {confirmModal.isOpen && (
+          <ConfirmModal />
+        )}
       </Suspense>
 
       {/* Success Toast */}
@@ -92,7 +93,7 @@ export default function App() {
             <path d="M2.5 6L5 8.5L9.5 3.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
-        Стажировка успешно опубликована!
+        {toastMessage}
       </div>
     </>
   );

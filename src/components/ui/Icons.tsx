@@ -3,6 +3,15 @@ export interface IconProps {
     className?: string;
 }
 
+/** Иконка бургер-меню (три полоски) */
+export function MenuIcon({ size = 20, className = "" }: IconProps) {
+    return (
+        <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none">
+            <path d="M4 8H20M4 12H20M4 16H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+}
+
 /** Иконка закрытия (×) — используется в модалках */
 export function CloseIcon({ size = 20, className = "" }: IconProps) {
     return (

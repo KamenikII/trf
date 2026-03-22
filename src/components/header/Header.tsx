@@ -31,7 +31,7 @@ export const Header = () => {
 
   const closeMenu = () => setMenuOpen(false);
   const closeProfileMenu = () => setProfileMenuOpen(false);
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
@@ -75,12 +75,14 @@ export const Header = () => {
             {!currentUser ? (
               <>
                 <button className="btn btn--ghost" id="btn-cta-header" title="Разместить стажировку" aria-label="Разместить стажировку"
-                  onClick={(e) => { e.preventDefault(); openPostModal(); }}>
+                  onClick={(e) => { e.preventDefault(); openPostModal(); }}
+                  style={{ height: "36px", minHeight: "36px", padding: "0 16px" }}>
                   <span className="btn-text">Разместить стажировку</span>
                   <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
                 <button className="btn btn--primary" id="btn-login"
-                  onClick={(e) => { e.preventDefault(); openAuthModal(); }}>
+                  onClick={(e) => { e.preventDefault(); openAuthModal(); }}
+                  style={{ height: "36px", minHeight: "36px", padding: "0 16px" }}>
                   Войти
                 </button>
               </>
@@ -88,22 +90,28 @@ export const Header = () => {
               <>
                 {!isStudent && (
                   <button className="btn btn--ghost" id="btn-cta-header" title="Разместить стажировку" aria-label="Разместить стажировку"
-                    onClick={(e) => { e.preventDefault(); openPostModal(); }}>
+                    onClick={(e) => { e.preventDefault(); openPostModal(); }}
+                    style={{ height: "36px", minHeight: "36px", padding: "0 16px" }}>
                     <span className="btn-text">Разместить стажировку</span>
                     <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                   </button>
                 )}
-                <div className="header__user" onClick={logout} title="Выйти"
+                <button className="header__user" onClick={logout} title="Выйти"
                   style={{
-                    cursor: "pointer", width: "32px", height: "32px",
+                    cursor: "pointer", width: "36px", height: "36px",
                     borderRadius: "var(--Radius--Semantics--radius-avatar)",
                     background: "var(--Primitives--neutral--200)",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontWeight: "600", fontSize: "var(--Typography--Primitives--font-size--14)",
-                    color: "var(--Primitives--neutral--700)"
+                    color: "var(--Primitives--neutral--700)",
+                    border: "none", padding: 0, overflow: "hidden"
                   }}>
-                  {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
-                </div>
+                  {currentUser.avatar ? (
+                    <img src={currentUser.avatar} alt="Аватар" style={{width: "100%", height: "100%", objectFit: "cover"}} />
+                  ) : (
+                    <>{currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}</>
+                  )}
+                </button>
               </>
             )}
           </div>
@@ -129,8 +137,8 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Profile mobile menu */}
-      <div className={`mobile-menu${profileMenuOpen ? " is-open" : ""}`} id="mobile-profile-menu" role="dialog" aria-modal="true">
+      {/* Profile mobile menu (for tablets/mobile) */}
+      <div className={`mobile-menu nav__tablet-show ${profileMenuOpen ? " is-open" : ""}`} id="mobile-profile-menu" role="dialog" aria-modal="true" style={{ display: 'none' }}>
         <div className="mobile-menu__overlay" onClick={closeProfileMenu} />
         <div className="mobile-menu__panel">
           <nav className="mobile-menu__nav">
@@ -175,10 +183,14 @@ export const Header = () => {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontWeight: "600", fontSize: "var(--Typography--Primitives--font-size--14)",
                 color: "var(--Primitives--neutral--700)",
-                border: "none",
+                border: "none", overflow: "hidden",
                 padding: 0
               }}>
-              {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
+              {currentUser.avatar ? (
+                <img src={currentUser.avatar} alt="Аватар" style={{width: "100%", height: "100%", objectFit: "cover"}} />
+              ) : (
+                <>{currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}</>
+              )}
             </button>
           )}
         </div>

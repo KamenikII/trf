@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { IInternship } from "../types";
 
 export interface ModalContextType {
     filterModalOpen: boolean;
@@ -15,7 +16,19 @@ export interface ModalContextType {
     openDetail: (item: IInternship) => void;
     closeDetail: () => void;
     toastVisible: boolean;
-    showToast: () => void;
+    toastMessage: string;
+    showToast: (msg?: string) => void;
+    confirmModal: { 
+        isOpen: boolean; 
+        title: string; 
+        message: string; 
+        onConfirm: () => void;
+        onCancel?: () => void;
+        confirmLabel?: string;
+        cancelLabel?: string;
+    };
+    openConfirm: (options: { title: string; message: string; onConfirm: () => void, onCancel?: () => void, confirmLabel?: string, cancelLabel?: string }) => void;
+    closeConfirm: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | null>(null);
@@ -25,8 +38,18 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     const [filterModalSection, setFilterModalSection] = useState("sort");
     const [postModalOpen, setPostModalOpen] = useState(false);
     const [authModalOpen, setAuthModalOpen] = useState(false);
-    const [detailItem, setDetailItem] = useState(null);
+    const [detailItem, setDetailItem] = useState<IInternship | null>(null);
     const [toastVisible, setToastVisible] = useState(false);
+    const [toastMessage, setToastMessage] = useState("Стажировка успешно опубликована!");
+    const [confirmModal, setConfirmModal] = useState({ 
+        isOpen: false, 
+        title: "", 
+        message: "", 
+        onConfirm: () => {},
+        onCancel: () => {},
+        confirmLabel: "Подтвердить",
+        cancelLabel: "Отмена"
+    });
 
     const openFilterModal = useCallback((section?: string) => {
         setFilterModalSection(section || "sort");
@@ -44,9 +67,26 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     const openDetail = useCallback((item: IInternship) => setDetailItem(item), []);
     const closeDetail = useCallback(() => setDetailItem(null), []);
 
-    const showToast = useCallback(() => {
+    const showToast = useCallback((msg = "Стажировка успешно опубликована!") => {
+        setToastMessage(msg);
         setToastVisible(true);
         setTimeout(() => setToastVisible(false), 3000);
+    }, []);
+
+    const openConfirm = useCallback((options: { title: string; message: string; onConfirm: () => void, onCancel?: () => void, confirmLabel?: string, cancelLabel?: string }) => {
+        setConfirmModal({
+            isOpen: true,
+            title: options.title,
+            message: options.message,
+            onConfirm: options.onConfirm,
+            onCancel: options.onCancel || (() => {}),
+            confirmLabel: options.confirmLabel || "Подтвердить",
+            cancelLabel: options.cancelLabel || "Отмена"
+        });
+    }, []);
+
+    const closeConfirm = useCallback(() => {
+        setConfirmModal(prev => ({ ...prev, isOpen: false }));
     }, []);
 
     return (
@@ -55,7 +95,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             postModalOpen, openPostModal, closePostModal,
             authModalOpen, openAuthModal, closeAuthModal,
             detailItem, openDetail, closeDetail,
-            toastVisible, showToast,
+            toastVisible, toastMessage, showToast,
+            confirmModal, openConfirm, closeConfirm
         }}>
             {children}
         </ModalContext.Provider>

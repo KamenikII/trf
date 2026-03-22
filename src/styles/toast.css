@@ -37,3 +37,11 @@
     background: var(--Primitives--green--500);
     flex-shrink: 0;
 }
+
+@media (max-width: 720px) {
+    .post-toast {
+        bottom: calc(92px + env(safe-area-inset-bottom));
+        width: calc(100% - 32px); /* Full width minus margins */
+        justify-content: center;
+    }
+}
