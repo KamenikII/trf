@@ -47,3 +47,34 @@ export function ChevronIcon({ size = 12, className = "" }: IconProps) {
         </svg>
     );
 }
+
+/** Закрашенная звезда для рейтинга профиля */
+export function StarFilledIcon({ size = 16, className = "" }: IconProps) {
+    return (
+        <svg className={className} width={size} height={size} viewBox="0 0 16 16" fill="none">
+            <path d="M8 1.5l1.85 3.74 4.15.61-3 2.93.71 4.12L8 10.67l-3.71 2.23.71-4.12-3-2.93 4.15-.61L8 1.5z"
+                fill="currentColor" stroke="currentColor" strokeWidth="0.5" />
+        </svg>
+    );
+}
+
+/** Иконка монеты (баланс) */
+export function CoinIcon({ size = 16, className = "" }: IconProps) {
+    return (
+        <svg className={className} width={size} height={size} viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="3.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
+            <path d="M2 6.5h12" stroke="currentColor" strokeWidth="1.3" />
+            <path d="M5 10h2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+        </svg>
+    );
+}
+
+/** Иконка скачивания резюме */
+export function DownloadIcon({ size = 16, className = "" }: IconProps) {
+    return (
+        <svg className={className} width={size} height={size} viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v8.5M8 10.5l3-3M8 10.5l-3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3 12.5h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+        </svg>
+    );
+}

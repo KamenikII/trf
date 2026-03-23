@@ -1,0 +1,31 @@
+/* ══════════════════════════════════════════
+   Profile Page — layout wrapper
+   Стили компонентов живут рядом с компонентами:
+     - profile-header/ProfileHeader.css
+     - profile-tabs/ProfileTabs.css
+     - profile-stats/ProfileStats.css
+     - profile-skills/ProfileSkills.css
+     - profile-placeholder/ProfilePlaceholder.css
+   ══════════════════════════════════════════ */
+
+.profile-page {
+  min-height: calc(100dvh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--Spacing--Primitives--space-10) var(--Spacing--Primitives--space-4);
+}
+
+.profile-page__container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  transform: translateY(-20px);
+}
+
+@media (max-width: 640px) {
+  .profile-page {
+    padding-top: var(--Spacing--Primitives--space-12);
+    padding-bottom: var(--Spacing--Primitives--space-12);
+  }
+}

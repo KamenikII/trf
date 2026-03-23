@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { IInternship } from "./types";
 import { useInternships } from "./context/InternshipContext";
 import { useAuth } from "./context/AuthContext";
@@ -8,6 +8,9 @@ import { useFilters } from "./context/FilterContext";
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { ScrollTopButton } from './components/scroll-top-button/ScrollTopButton';
+import { HomePage } from "./pages/HomePage";
+import { FavoritesPage } from "./pages/FavoritesPage";
+import { ProfilePage } from "./pages/ProfilePage";
 
 // Lazy-loaded modals — only loaded when first opened
 const FilterModal = lazy(() => import('./components/filter-modal/FilterModal').then(m => ({ default: m.FilterModal })));
@@ -39,7 +42,11 @@ export default function App() {
       <Header />
 
       <main>
-        <Outlet />
+        <Routes>
+          <Route path="/" element={<HomePage  />} />
+          <Route path="/favorites" element={<FavoritesPage  />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
       </main>
 
       <Footer />

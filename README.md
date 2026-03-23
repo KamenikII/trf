@@ -66,9 +66,10 @@ stajer_rf/
     ├── hooks/                   # Кастомные хуки
     ├── context/                 # Провайдеры контекстов (Context API)
     ├── data/                    # Моковые данные (internships.ts, directions.ts)
-    ├── pages/                   # Страницы приложения (HomePage.tsx, FavoritesPage.tsx)
+    ├── pages/                   # Страницы приложения (HomePage.tsx, FavoritesPage.tsx, ProfilePage.tsx)
     └── components/              # UI-компоненты
-        ├── header/              # Шапка сайта
+        ├── header/              # Шапка сайта (с профильным dropdown)
+        ├── profile/             # Декомпозированные компоненты профиля (Header, Tabs, Stats, Skills)
         ├── footer/              # Подвал сайта
         ├── hero/                # Заглавный баннер
         ├── board/               # Сетка стажировок
@@ -160,6 +161,14 @@ App
 │       ├── main (Сетка избранных карточек InternshipCard)
 │       └── Footer
 │
+│   └── ProfilePage              # Страница профиля студента
+│       ├── Header
+│       ├── ProfileHeader        # Аватар и базовая информация пользователя
+│       ├── ProfileTabs          # Навигация по вкладкам и скачивание резюме
+│       ├── ProfileStats         # Карточки интерфейса рейтинга и заработка (SVG-градиент)
+│       ├── ProfileSkills        # Список навыков (кастомные теги)
+│       └── ProfilePlaceholder   # Универсальная заглушка пустых разделов
+│
 └── Modals (Обёртки из ModalContext)
     ├── AuthModal
     ├── PostModal
@@ -185,7 +194,8 @@ App
 
 ### Сводка изменений по адаптиву
 
-- **Header:** Sticky top на Desktop/Tablet; **Fixed bottom** на Mobile с бургер-меню.
+- **Header:** Расширенная логика профиля. На Desktop — выпадающий `dropdown` аккаунта, на Mobile — интегрированное профильно-бургерное меню со статистикой и навигацией.
+- **Profile:** Адаптация страницы профиля. Карточки статистики на Mobile плотно масштабируются (используется `1fr 1fr` сетка с уменьшенными текстами и отступами), аватар уменьшается под мобильный размер (`56px`).
 - **Hero:** Оптимизация размера H1 заголовков (уменьшение до 28px) и колонок кнопок на Mobile.
 - **Cards Grid:** 3 колонки на Desktop → 2 на Tablet → 1 на Mobile.
 - **Toolbar:** Кнопки отдельных фильтров скрыты на Mobile, и показана одна общая кнопка «Фильтры» для вызова FilterModal.

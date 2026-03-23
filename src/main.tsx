@@ -12,6 +12,7 @@ import './variables.css'
 import './styles/global.css'
 import './styles/toast.css'
 import './styles/favorites.css'
+import './styles/profile.css'
 
 /* Context providers */
 import { AuthProvider } from './context/AuthContext'
