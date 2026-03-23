@@ -27,10 +27,6 @@ export const Footer = () => {
               <a href="#" className="footer__link">Условия использования</a>
               <a href="#" className="footer__link">Политика конфиденциальности</a>
             </div>
-            <div className="footer__column">
-              <h4 className="footer__heading">Тестовое</h4>
-              <Link to="/settings" className="footer__link">Настройки</Link>
-            </div>
           </div>
         </div>
         <div className="footer__bottom">
