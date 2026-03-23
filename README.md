@@ -60,13 +60,13 @@ stajer_rf/
     ├── main.tsx                 # Точка входа React App
     ├── App.tsx                  # Корневой компонент с Provider-обёртками и Routes
     ├── variables.css            # Дизайн-токены проекта (Primitives и Semantics)
-    ├── styles/                  # Глобальные стили (global.css, toast.css, favorites.css)
+    ├── styles/                  # Глобальные стили (global.css, toast.css, favorites.css, profile.css, settings.css)
     ├── types/                   # Интерфейсы TypeScript
     ├── utils/                   # Вспомогательные функции
     ├── hooks/                   # Кастомные хуки
     ├── context/                 # Провайдеры контекстов (Context API)
     ├── data/                    # Моковые данные (internships.ts, directions.ts)
-    ├── pages/                   # Страницы приложения (HomePage.tsx, FavoritesPage.tsx, ProfilePage.tsx)
+    ├── pages/                   # Страницы приложения (HomePage.tsx, FavoritesPage.tsx, ProfilePage.tsx, SettingsPage.tsx)
     └── components/              # UI-компоненты
         ├── header/              # Шапка сайта (с профильным dropdown)
         ├── profile/             # Декомпозированные компоненты профиля (Header, Tabs, Stats, Skills)
@@ -169,6 +169,9 @@ App
 │       ├── ProfileSkills        # Список навыков (кастомные теги)
 │       └── ProfilePlaceholder   # Универсальная заглушка пустых разделов
 │
+│   └── SettingsPage             # Страница настроек профиля (данные и безопасность)
+│
+
 └── Modals (Обёртки из ModalContext)
     ├── AuthModal
     ├── PostModal
