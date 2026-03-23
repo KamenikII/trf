@@ -53,10 +53,11 @@ export interface IUser {
     middleName?: string;
     role: 'student' | 'company' | null;
     university?: string;
-    course?: string;
+    course?: string | number;
     direction?: string;
     rating?: number;
     earned?: number;
     coins?: number;
     skills?: string[];
+    avatar?: string;
 }

@@ -11,6 +11,7 @@ import { ScrollTopButton } from './components/scroll-top-button/ScrollTopButton'
 import { HomePage } from "./pages/HomePage";
 import { FavoritesPage } from "./pages/FavoritesPage";
 import { ProfilePage } from "./pages/ProfilePage";
+import { SettingsPage } from "./pages/SettingsPage";
 
 // Lazy-loaded modals — only loaded when first opened
 const FilterModal = lazy(() => import('./components/filter-modal/FilterModal').then(m => ({ default: m.FilterModal })));
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/" element={<HomePage  />} />
           <Route path="/favorites" element={<FavoritesPage  />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </main>
 

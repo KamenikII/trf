@@ -203,13 +203,15 @@
 }
 
 .header-badge--coin {
-    background: var(--Primitives--neutral--100);
-    color: var(--Primitives--neutral--700);
+    background: linear-gradient(135deg, #fff8e6, #fff0c9);
+    color: #b07800;
+    border: 1px solid #F5D87A;
 }
 
 .header-badge--rating {
-    background: var(--Primitives--neutral--100);
-    color: var(--Primitives--neutral--700);
+    background: linear-gradient(135deg, #f0eeff, #e6e0ff);
+    color: #5b3fc9;
+    border: 1px solid #C7B8FF;
 }
 
 /* ── Profile Dropdown (Desktop) ── */

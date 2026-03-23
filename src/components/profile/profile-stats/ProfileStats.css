@@ -129,7 +129,8 @@
   .profile-stats__card {
     padding: var(--Spacing--Primitives--space-3) var(--Spacing--Primitives--space-3);
     gap: var(--Spacing--Primitives--space-1);
-    height: auto;
+    height: 70px;
+    width: 180px;
   }
 
   .profile-stats__label {
