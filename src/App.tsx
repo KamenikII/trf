@@ -17,6 +17,7 @@ const FilterModal = lazy(() => import('./components/filter-modal/FilterModal').t
 const PostModal = lazy(() => import('./components/post-modal/PostModal').then(m => ({ default: m.PostModal })));
 const DetailModal = lazy(() => import('./components/detail-modal/DetailModal').then(m => ({ default: m.DetailModal })));
 const AuthModal = lazy(() => import('./components/auth-modal/AuthModal').then(m => ({ default: m.AuthModal })));
+const ConfirmModal = lazy(() => import('./components/confirm-modal/ConfirmModal').then(m => ({ default: m.ConfirmModal })));
 
 export default function App() {
   const { addInternship } = useInternships();
@@ -27,7 +28,8 @@ export default function App() {
     postModalOpen, closePostModal,
     authModalOpen, closeAuthModal,
     detailItem, closeDetail,
-    toastVisible, showToast,
+    toastVisible, toastMessage, showToast,
+    confirmModal,
   } = useModals();
 
   const handlePostSubmit = (newInternship: IInternship) => {
@@ -85,6 +87,10 @@ export default function App() {
             onLogin={login}
           />
         )}
+
+        {confirmModal.isOpen && (
+          <ConfirmModal />
+        )}
       </Suspense>
 
       {/* Success Toast */}
@@ -94,7 +100,7 @@ export default function App() {
             <path d="M2.5 6L5 8.5L9.5 3.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
-        Стажировка успешно опубликована!
+        {toastMessage}
       </div>
     </>
   );

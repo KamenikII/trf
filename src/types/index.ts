@@ -46,7 +46,7 @@ export interface IFilters {
 }
 
 export interface IUser {
-    id: string;
+    id: string | number;
     email: string;
     firstName: string;
     lastName: string;

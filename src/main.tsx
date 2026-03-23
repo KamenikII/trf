@@ -1,6 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { HomePage } from './pages/HomePage'
+import { FavoritesPage } from './pages/FavoritesPage'
+import { SettingsPage } from './pages/SettingsPage'
 
 /* Design tokens */
 import './variables.css'
@@ -20,20 +23,39 @@ import { InternshipProvider } from './context/InternshipContext'
 
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/favorites",
+        element: <FavoritesPage />,
+      },
+      {
+        path: "/settings",
+        element: <SettingsPage />,
+      },
+    ],
+  },
+]);
+
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
       <AuthProvider>
         <FilterProvider>
           <FavoritesProvider>
             <InternshipProvider>
               <ModalProvider>
-              <App />
-            </ModalProvider>
+                <RouterProvider router={router} />
+              </ModalProvider>
             </InternshipProvider>
           </FavoritesProvider>
         </FilterProvider>
       </AuthProvider>
-    </BrowserRouter>
   </StrictMode>,
 )
