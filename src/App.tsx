@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { IInternship } from "./types";
 import { useInternships } from "./context/InternshipContext";
 import { useAuth } from "./context/AuthContext";
@@ -8,6 +8,7 @@ import { useFilters } from "./context/FilterContext";
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { ScrollTopButton } from './components/scroll-top-button/ScrollTopButton';
+import ScrollToTop from './components/ScrollToTop';
 import { HomePage } from "./pages/HomePage";
 import { FavoritesPage } from "./pages/FavoritesPage";
 import { ProfilePage } from "./pages/ProfilePage";
@@ -19,15 +20,18 @@ const PostModal = lazy(() => import('./components/post-modal/PostModal').then(m 
 const DetailModal = lazy(() => import('./components/detail-modal/DetailModal').then(m => ({ default: m.DetailModal })));
 const AuthModal = lazy(() => import('./components/auth-modal/AuthModal').then(m => ({ default: m.AuthModal })));
 const ConfirmModal = lazy(() => import('./components/confirm-modal/ConfirmModal').then(m => ({ default: m.ConfirmModal })));
+const CreateOrgModal = lazy(() => import('./components/create-org-modal/CreateOrgModal').then(m => ({ default: m.CreateOrgModal })));
 
 export default function App() {
   const { addInternship } = useInternships();
-  const { login } = useAuth();
+  const { currentUser, login } = useAuth();
+  const location = useLocation();
   const { filters, setFilters } = useFilters();
   const {
     filterModalOpen, filterModalSection, closeFilterModal,
     postModalOpen, closePostModal,
     authModalOpen, closeAuthModal,
+    createOrgModalOpen, closeCreateOrgModal,
     detailItem, closeDetail,
     toastVisible, toastMessage, showToast,
     confirmModal,
@@ -38,20 +42,23 @@ export default function App() {
     showToast();
   };
 
+  const isCompanyProfile = currentUser?.role === 'company' && location.pathname.startsWith('/profile');
+
   return (
     <>
+      <ScrollToTop />
       <Header />
 
       <main>
         <Routes>
           <Route path="/" element={<HomePage  />} />
           <Route path="/favorites" element={<FavoritesPage  />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/*" element={<ProfilePage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </main>
 
-      <Footer />
+      {!isCompanyProfile && <Footer />}
       <ScrollTopButton />
 
       <Suspense fallback={null}>
@@ -92,6 +99,13 @@ export default function App() {
 
         {confirmModal.isOpen && (
           <ConfirmModal />
+        )}
+
+        {createOrgModalOpen && (
+          <CreateOrgModal 
+            isOpen={createOrgModalOpen} 
+            onClose={closeCreateOrgModal} 
+          />
         )}
       </Suspense>
 

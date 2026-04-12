@@ -7,11 +7,10 @@ import { IUser } from '../../types';
 
 /* ── SVG-Иконки ── */
 
-function CoinIcon() {
+function FireIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <circle cx="7" cy="7" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-      <text x="7" y="10.5" textAnchor="middle" fontSize="7" fontWeight="700" fill="currentColor" fontFamily="inherit">C</text>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 3.5 6.5 1.5 2 2 4.5 2 7a6 6 0 1 1-12 0c0-1.5.5-3 1.5-4.5z" />
     </svg>
   );
 }
@@ -92,14 +91,14 @@ const PROFILE_MENU_ITEMS: IProfileMenuItem[] = [
 
 /* ── Бейджи ── */
 
-interface ICoinBadgeProps {
+interface IFireBadgeProps {
   amount: number;
 }
 
-function CoinBadge({ amount }: ICoinBadgeProps) {
+function FireBadge({ amount }: IFireBadgeProps) {
   return (
-    <div className="header-badge header-badge--coin" title={`${amount} монет`}>
-      <span className="header-badge__icon"><CoinIcon /></span>
+    <div className="header-badge header-badge--fire" title={`${amount} огоньков`}>
+      <span className="header-badge__icon"><FireIcon /></span>
       <span className="header-badge__value">{amount.toLocaleString("ru")}</span>
     </div>
   );
@@ -130,23 +129,33 @@ function ProfileDropdown({ currentUser, onLogout, onClose }: IProfileDropdownPro
   return (
     <div className="profile-dropdown" role="menu" aria-label="Меню профиля">
       {/* Шапка */}
-      <div className="profile-dropdown__header">
-        <div className="profile-dropdown__avatar">
-          {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
+      <Link to="/profile" className="profile-dropdown__header" onClick={onClose} style={{ textDecoration: 'none' }}>
+        <div className={`profile-dropdown__avatar ${currentUser.companyName ? 'profile-dropdown__avatar--square' : ''}`}>
+          {currentUser.avatar ? (
+             <img src={currentUser.avatar} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+          ) : (
+             currentUser.companyName 
+               ? currentUser.companyName.charAt(0).toUpperCase() 
+               : `${currentUser.firstName?.charAt(0)}${currentUser.lastName?.charAt(0)}`
+          )}
         </div>
         <div className="profile-dropdown__info">
           <span className="profile-dropdown__name">
-            {currentUser.firstName} {currentUser.lastName}
+            {currentUser.companyName || `${currentUser.firstName} ${currentUser.lastName}`}
           </span>
-          <span className="profile-dropdown__email">{currentUser.email}</span>
+          <span className="profile-dropdown__email">
+            {currentUser.companyName ? `${currentUser.firstName} ${currentUser.lastName}` : currentUser.email}
+          </span>
         </div>
-      </div>
+      </Link>
 
       <div className="profile-dropdown__divider" />
 
       {/* Пункты меню */}
       <nav className="profile-dropdown__nav">
-        {PROFILE_MENU_ITEMS.map((item) =>
+        {PROFILE_MENU_ITEMS
+          .filter(item => !(currentUser.role === 'company' && ['subscription', 'balance', 'favorites'].includes(item.key)))
+          .map((item) =>
           item.href ? (
             <Link
               key={item.key}
@@ -210,7 +219,7 @@ export const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Мок-данные профиля студента
-  const studentCoins = currentUser?.coins ?? 1240;
+  const studentFire = currentUser?.fire ?? 1240;
   const studentRating = currentUser?.rating ?? 4.8;
 
   // Закрытие дропдауна по клику снаружи
@@ -252,10 +261,11 @@ export const Header = () => {
   };
 
   const isActive = (path: string) => location.pathname === path;
+  const isCompanyProfile = currentUser?.role === 'company' && !!currentUser?.companyName && location.pathname.startsWith('/profile');
 
   return (
     <>
-      <header className="header" id="main-header">
+      <header className={`header${isCompanyProfile ? " header--wide" : ""}`} id="main-header">
         <div className="header__inner">
           <Link to="/" className="logo" id="logo">
             <img src="/img/Logo.svg" alt="стажёр.рф" className="logo__img" />
@@ -310,18 +320,18 @@ export const Header = () => {
             ) : (
               <>
                 {!isStudent && (
-                  <button className="btn btn--ghost" id="btn-cta-header" title="Разместить стажировку" aria-label="Разместить стажировку"
+                  <button className={`btn btn--ghost${currentUser?.role === 'company' ? ' btn-cta--icon-only' : ''}`} id="btn-cta-header" title="Разместить стажировку" aria-label="Разместить стажировку"
                     onClick={(e) => { e.preventDefault(); openPostModal(); }}
-                    style={{ height: "36px", minHeight: "36px", padding: "0 16px" }}>
+                    style={{ height: "36px", minHeight: "36px", padding: currentUser?.role === 'company' ? "0" : "0 16px" }}>
                     <span className="btn-text">Разместить стажировку</span>
                     <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                   </button>
                 )}
 
-                {/* Баджи монет и рейтинга — только для студентов */}
+                {/* Баджи огоньков и рейтинга — только для студентов */}
                 {isStudent && (
                   <div className="header__student-badges">
-                    <CoinBadge amount={studentCoins} />
+                    <FireBadge amount={studentFire} />
                     <RatingBadge value={studentRating} />
                   </div>
                 )}
@@ -329,14 +339,20 @@ export const Header = () => {
                 {/* Аватарка + дропдаун */}
                 <div className="header__profile-wrap" ref={dropdownRef}>
                   <button
-                    className={`header__avatar-btn${profileDropdownOpen ? " is-active" : ""}`}
+                    className={`header__avatar-btn${profileDropdownOpen ? " is-active" : ""}${currentUser.companyName ? " header__avatar-btn--square" : ""}`}
                     onClick={() => setProfileDropdownOpen(v => !v)}
                     aria-label="Профиль"
                     aria-expanded={profileDropdownOpen}
                     aria-haspopup="true"
                     id="btn-profile"
                   >
-                    {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
+                    {currentUser.avatar ? (
+                       <img src={currentUser.avatar} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+                    ) : (
+                       currentUser.companyName 
+                        ? currentUser.companyName.charAt(0).toUpperCase() 
+                        : `${currentUser.firstName?.charAt(0)}${currentUser.lastName?.charAt(0)}`
+                    )}
                   </button>
 
                   {profileDropdownOpen && (
@@ -380,21 +396,51 @@ export const Header = () => {
           {currentUser && (
             <>
               {/* Шапка профиля */}
-              <div className="mobile-profile__header">
-                <div className="mobile-profile__avatar">
-                  {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
+              <Link to="/profile" className="mobile-profile__header" onClick={closeProfileMenu} style={{ textDecoration: 'none' }}>
+                <div className={`mobile-profile__avatar ${currentUser.companyName ? 'mobile-profile__avatar--square' : ''}`}>
+                  {currentUser.avatar ? (
+                     <img src={currentUser.avatar} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+                  ) : (
+                     currentUser.companyName 
+                       ? currentUser.companyName.charAt(0).toUpperCase() 
+                       : `${currentUser.firstName?.charAt(0)}${currentUser.lastName?.charAt(0)}`
+                  )}
                 </div>
                 <div className="mobile-profile__info">
-                  <span className="mobile-profile__name">{currentUser.firstName} {currentUser.lastName}</span>
-                  <span className="mobile-profile__email">{currentUser.email}</span>
+                  <span className="mobile-profile__name">
+                    {currentUser.companyName || `${currentUser.firstName} ${currentUser.lastName}`}
+                  </span>
+                  <span className="mobile-profile__email">
+                    {currentUser.companyName ? `${currentUser.firstName} ${currentUser.lastName}` : currentUser.email}
+                  </span>
                 </div>
-              </div>
+              </Link>
+
+              <div className="mobile-profile__divider" />
+
+              {/* Статистика студента как пункты меню (только для студентов) */}
+              {isStudent && (
+                <div className="mobile-menu__nav mobile-menu__nav--stats">
+                  <div className="mobile-menu__link mobile-menu__link--icon mobile-menu__link--stat mobile-menu__link--rating">
+                    <span className="mobile-menu__item-icon"><StarIcon /></span>
+                    <span className="mobile-menu__stat-label">Рейтинг</span>
+                    <span className="mobile-menu__stat-value">{studentRating}</span>
+                  </div>
+                  <div className="mobile-menu__link mobile-menu__link--icon mobile-menu__link--stat mobile-menu__link--fire">
+                    <span className="mobile-menu__item-icon"><FireIcon /></span>
+                    <span className="mobile-menu__stat-label">Огоньки</span>
+                    <span className="mobile-menu__stat-value">{studentFire.toLocaleString("ru")}</span>
+                  </div>
+                </div>
+              )}
 
               <div className="mobile-profile__divider" />
 
               {/* Пункты меню */}
               <nav className="mobile-menu__nav">
-                {PROFILE_MENU_ITEMS.map((item) =>
+                {PROFILE_MENU_ITEMS
+                  .filter(item => !(currentUser.role === 'company' && ['subscription', 'balance', 'favorites'].includes(item.key)))
+                  .map((item) =>
                   item.href ? (
                     <Link
                       key={item.key}
@@ -417,23 +463,6 @@ export const Header = () => {
                   )
                 )}
               </nav>
-
-              <div className="mobile-profile__divider" />
-
-              {/* Выйти */}
-              <button
-                className="mobile-menu__link mobile-menu__link--icon mobile-menu__link--danger"
-                onClick={() => { closeProfileMenu(); logout(); }}
-              >
-                <span className="mobile-menu__item-icon">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                    <path d="M10.5 11L14 8l-3.5-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M14 8H6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  </svg>
-                </span>
-                Выйти
-              </button>
             </>
           )}
         </div>
@@ -451,21 +480,13 @@ export const Header = () => {
             </button>
           )}
 
-          {/* Баджи студента в мобильной панели */}
-          {currentUser && isStudent && (
-            <div className="mobile-bottom-nav__badges">
-              <CoinBadge amount={studentCoins} />
-              <RatingBadge value={studentRating} />
-            </div>
-          )}
-
           {!currentUser ? (
             <button className="btn btn--primary" onClick={(e) => { e.preventDefault(); closeMenu(); openAuthModal(); }}>
               Войти
             </button>
           ) : (
             <button
-              className={`header__avatar-btn${profileMenuOpen ? " is-active" : ""}`}
+              className={`header__avatar-btn${currentUser.companyName ? " header__avatar-btn--square" : ""}`}
               onClick={toggleProfileMenu}
               title="Профиль"
               style={{ width: "40px", height: "40px", fontSize: "var(--Typography--Primitives--font-size--14)" }}
@@ -473,7 +494,7 @@ export const Header = () => {
               {currentUser.avatar ? (
                 <img src={currentUser.avatar} alt="Аватар" style={{width: "100%", height: "100%", objectFit: "cover"}} />
               ) : (
-                <>{currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}</>
+                <>{currentUser.companyName ? currentUser.companyName.charAt(0).toUpperCase() : `${currentUser.firstName?.charAt(0)}${currentUser.lastName?.charAt(0)}`}</>
               )}
             </button>
           )}

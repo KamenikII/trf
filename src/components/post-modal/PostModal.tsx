@@ -8,6 +8,7 @@ import { useBodyLock } from '../../hooks/useBodyLock';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { usePostForm } from '../../hooks/usePostForm';
+import { useAuth } from '../../context/AuthContext';
 
 export interface PostModalProps {
   isOpen: boolean;
@@ -16,6 +17,7 @@ export interface PostModalProps {
 }
 
 export const PostModal = ({ isOpen, onClose, onSubmit }: PostModalProps) => {
+  const { currentUser } = useAuth();
   const f = usePostForm();
 
   useEffect(() => { if (isOpen) f.resetForm(); }, [isOpen]);
@@ -50,22 +52,25 @@ export const PostModal = ({ isOpen, onClose, onSubmit }: PostModalProps) => {
 
         <div className="post-modal__body">
           <form className="post-form" id="post-form" noValidate>
-            {/* Company */}
-            <div className="post-form__group">
-              <label className="post-form__label" htmlFor="post-company">
-                Название компании <span className="post-form__req">*</span>
-              </label>
-              <input type="text" id="post-company" placeholder="Например: Яндекс"
-                className={`post-form__input${f.errors.company ? " is-error" : ""}`}
-                value={f.form.company}
-                onChange={(e) => f.updateField("company", e.target.value)} />
-            </div>
+            {/* Company & Logo (only for users without organization) */}
+            {!currentUser?.companyName && (
+              <>
+                <div className="post-form__group">
+                  <label className="post-form__label" htmlFor="post-company">
+                    Название компании <span className="post-form__req">*</span>
+                  </label>
+                  <input type="text" id="post-company" placeholder="Например: Яндекс"
+                    className={`post-form__input${f.errors.company ? " is-error" : ""}`}
+                    value={f.form.company}
+                    onChange={(e) => f.updateField("company", e.target.value)} />
+                </div>
 
-            {/* Logo */}
-            <LogoUpload
-              photoPreview={f.photoPreview} photoDataUrl={f.photoDataUrl || ""}
-              fileInputRef={f.fileInputRef as React.RefObject<HTMLInputElement>}
-              onFileChange={f.handleFileChange} onRemove={f.removePhoto} />
+                <LogoUpload
+                  photoPreview={f.photoPreview} photoDataUrl={f.photoDataUrl || ""}
+                  fileInputRef={f.fileInputRef as React.RefObject<HTMLInputElement>}
+                  onFileChange={f.handleFileChange} onRemove={f.removePhoto} />
+              </>
+            )}
 
             {/* Position */}
             <div className="post-form__group">

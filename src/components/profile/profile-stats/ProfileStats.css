@@ -71,8 +71,8 @@
   z-index: -1;
 }
 
-/* Карточка "Заработано" — светлая */
-.profile-stats__card--earned {
+/* Карточка "Огоньки" — светлая */
+.profile-stats__card--fire {
   background: #fff;
 }
 
@@ -93,8 +93,8 @@
   mix-blend-mode: overlay;
 }
 
-.profile-stats__card--earned .profile-stats__label {
-  color: var(--Primitives--neutral--500);
+.profile-stats__card--fire .profile-stats__label {
+  color: #ff6b00;
 }
 
 .profile-stats__value {
@@ -109,14 +109,8 @@
   color: var(--Primitives--violet--100);
 }
 
-.profile-stats__card--earned .profile-stats__value {
-  background:
-    url("data:image/svg+xml;utf8,<svg viewBox='0 0 345 45' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(14.286 -3.2753 2.7434 3.0307 0.000014329 44.835)'><stop stop-color='rgba(46,16,101,1)' offset='0'/><stop stop-color='rgba(65,27,135,1)' offset='0.25'/><stop stop-color='rgba(85,37,169,1)' offset='0.5'/><stop stop-color='rgba(124,58,237,1)' offset='1'/></radialGradient></defs></svg>"),
-    linear-gradient(90deg, #000 0%, #000 100%);
-  background-size: 100% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.profile-stats__card--fire .profile-stats__value {
+  color: #ff6b00;
   font-weight: var(--Typography--Primitives--font-weight--600);
 }
 

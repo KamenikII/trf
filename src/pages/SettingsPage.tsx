@@ -86,6 +86,7 @@ export const SettingsPage = () => {
                 message: "Вы внесли изменения в настройки. Вы уверены, что хотите покинуть страницу? Все несохраненные данные будут потеряны.",
                 confirmLabel: "Покинуть страницу",
                 cancelLabel: "Остаться",
+                variant: 'danger',
                 onConfirm: () => blocker.proceed(),
                 onCancel: () => blocker.reset()
             });
