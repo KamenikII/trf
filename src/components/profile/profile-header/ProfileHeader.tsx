@@ -19,7 +19,7 @@ export const ProfileHeader = ({ firstName, lastName, university, course, directi
       <div className="profile-header__info">
         <h1 className="profile-header__name">{firstName} {lastName}</h1>
         <p className="profile-header__meta">
-          {university},&nbsp;&nbsp;{course}, {direction}
+          {university}, {course} курс, {direction}
         </p>
       </div>
     </div>

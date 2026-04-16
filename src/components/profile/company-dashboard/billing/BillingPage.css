@@ -378,17 +378,6 @@
 .buy-service-btn-sm:hover {
     background: var(--Primitives--neutral--800);
 }
-    border: none;
-    background: transparent;
-    color: var(--Primitives--neutral--600);
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s;
-}
 
 .counter-btn:hover:not(:disabled) {
     background: #fff;
@@ -461,7 +450,7 @@
 }
 
 .transactions-table td {
-    padding: 24px;
+    padding: 12px;
     border-bottom: 1px solid var(--Primitives--neutral--100);
     font-size: 14px;
 }
@@ -518,6 +507,17 @@
     }
     .premium-card {
         grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .transactions-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .transactions-table {
+        min-width: 600px;
     }
 }
 

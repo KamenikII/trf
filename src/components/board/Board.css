@@ -13,7 +13,7 @@
 /* ---------- Cards Grid ---------- */
 .board__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--Spacing--Primitives--space-4);
 }
 
@@ -103,13 +103,21 @@
 }
 
 /* ---------- Board Responsive ---------- */
+@media (max-width: 1080px) {
+    .board__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
     .board {
         padding: 0 var(--Spacing--Semantics--page-padding-x-sm);
         padding-top: var(--Spacing--Primitives--space-12);
         padding-bottom: var(--Spacing--Primitives--space-10);
     }
+}
 
+@media (max-width: 768px) {
     .board__grid {
         grid-template-columns: 1fr;
     }

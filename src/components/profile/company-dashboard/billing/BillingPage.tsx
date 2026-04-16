@@ -198,8 +198,9 @@ export const BillingPage = () => {
             <section className="transactions-section">
                 <h3 className="transactions-section__title">История транзакций</h3>
                 <div className="transactions-container">
-                    <table className="transactions-table">
-                        <thead>
+                    <div className="transactions-table-wrapper">
+                        <table className="transactions-table">
+                            <thead>
                             <tr>
                                 <th>ДАТА И ВРЕМЯ</th>
                                 <th>ОПИСАНИЕ</th>
@@ -214,8 +215,7 @@ export const BillingPage = () => {
                                     <td className="tx-desc">{tx.description}</td>
                                     <td className="tx-amount" align="right">
                                         <span className={tx.type === 'topup' ? 'plus' : 'minus'}>
-                                            {tx.type === 'topup' ? '+ ' : '- '}
-                                            {tx.amount.toLocaleString()} ₽
+                                            {tx.type === 'topup' ? '+ ' : '- '} {tx.amount.toLocaleString()} ₽
                                         </span>
                                     </td>
                                     <td align="center">
@@ -226,7 +226,8 @@ export const BillingPage = () => {
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </section>
         </div>

@@ -21,6 +21,13 @@
     transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
+@media (min-width: 721px) and (max-width: 1240px) {
+    .header__inner {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
 .header--wide .header__inner {
     max-width: 100%;
     padding: var(--Spacing--Primitives--space-3) var(--Spacing--Semantics--page-padding-x-lg);
@@ -243,7 +250,7 @@
     width: 240px;
     background: #fff;
     border: 1px solid var(--Primitives--neutral--150);
-    border-radius: var(--Radius--Primitives--radius-DEFAULT);
+    border-radius: var(--Radius--Primitives--radius-xl);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: var(--Spacing--Primitives--space-2);
     z-index: 900;
