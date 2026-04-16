@@ -49,7 +49,7 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
         if (!email) return;
         const user = getUserByEmail(email);
         if (user) {
-            if (user.role !== role) {
+            if (user.role !== role && user.role !== 'admin') {
                 alert(`Этот email уже зарегистрирован как ${user.role === "student" ? "студент" : "организация"}`);
                 return;
             }

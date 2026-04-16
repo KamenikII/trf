@@ -1,0 +1,135 @@
+/* ---------- Admin Companies Page ---------- */
+.admin-companies {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-4);
+}
+
+.admin-companies__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--Spacing--Primitives--space-3);
+}
+
+.admin-companies__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-companies__toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-3);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.admin-companies__search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+    position: relative;
+}
+
+.admin-company-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--Radius--Primitives--radius-md);
+    background: var(--Semantics--background);
+    border: 1px solid var(--Primitives--neutral--200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--Typography--Primitives--font-size--16);
+    font-weight: var(--Typography--Primitives--font-weight--600);
+    color: var(--Primitives--neutral--500);
+    flex-shrink: 0;
+}
+
+.admin-companies__filter-select {
+    padding: 8px 12px;
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: 14px;
+    color: var(--Primitives--neutral--950);
+    background: var(--Semantics--background);
+    outline: none;
+    cursor: pointer;
+    min-width: 160px;
+}
+
+.admin-companies__filter-select:focus {
+    border-color: var(--Primitives--neutral--400);
+}
+
+/* Company specific badges */
+.admin-badge--verified {
+    background-color: var(--Semantics--success-light);
+    color: var(--Semantics--success);
+}
+
+.admin-badge--unverified {
+    background-color: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--600);
+}
+
+.admin-badge--edu {
+    background-color: var(--Semantics--info-light);
+    color: var(--Semantics--info);
+}
+
+.admin-badge--business {
+    background-color: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--600);
+}
+
+/* Modal form overrides for verify/educate status */
+.admin-company-actions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+/* Custom Toggle Switch */
+.admin-toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.admin-toggle-switch input {
+    display: none;
+}
+
+.admin-toggle-track {
+    background: var(--Primitives--neutral--300);
+    border-radius: var(--Radius--Primitives--radius-full);
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+.admin-toggle-thumb {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--Semantics--background);
+    border-radius: var(--Radius--Primitives--radius-full);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--Effects--Primitives--shadow-xs);
+}
+
+.admin-toggle-switch input:checked + .admin-toggle-track {
+    background: var(--Semantics--success);
+}
+
+.admin-toggle-switch input:checked + .admin-toggle-track .admin-toggle-thumb {
+}
+
+.admin-toggle-switch input:disabled + .admin-toggle-track {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

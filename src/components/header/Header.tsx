@@ -153,8 +153,25 @@ function ProfileDropdown({ currentUser, onLogout, onClose }: IProfileDropdownPro
 
       {/* Пункты меню */}
       <nav className="profile-dropdown__nav">
+        {currentUser.role === 'admin' && (
+          <Link
+            key="admin"
+            to="/admin/dashboard"
+            className="profile-dropdown__item"
+            onClick={onClose}
+            role="menuitem"
+          >
+            <span className="profile-dropdown__item-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2L2 5v4c0 3.5 3 6.5 6 8 3-1.5 6-4.5 6-8V5L8 2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            Админ-панель
+          </Link>
+        )}
         {PROFILE_MENU_ITEMS
           .filter(item => !(currentUser.role === 'company' && ['subscription', 'balance', 'favorites'].includes(item.key)))
+          .filter(item => !(currentUser.role === 'admin' && ['subscription', 'balance', 'favorites', 'profile'].includes(item.key)))
           .map((item) =>
           item.href ? (
             <Link
@@ -438,8 +455,24 @@ export const Header = () => {
 
               {/* Пункты меню */}
               <nav className="mobile-menu__nav">
+                {currentUser.role === 'admin' && (
+                  <Link
+                    key="admin"
+                    to="/admin/dashboard"
+                    className="mobile-menu__link mobile-menu__link--icon"
+                    onClick={closeProfileMenu}
+                  >
+                    <span className="mobile-menu__item-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2L2 5v4c0 3.5 3 6.5 6 8 3-1.5 6-4.5 6-8V5L8 2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    Админ-панель
+                  </Link>
+                )}
                 {PROFILE_MENU_ITEMS
                   .filter(item => !(currentUser.role === 'company' && ['subscription', 'balance', 'favorites'].includes(item.key)))
+                  .filter(item => !(currentUser.role === 'admin' && ['subscription', 'balance', 'favorites', 'profile'].includes(item.key)))
                   .map((item) =>
                   item.href ? (
                     <Link

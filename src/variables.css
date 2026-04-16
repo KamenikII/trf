@@ -2,6 +2,9 @@
   /* Colors: Value */
 
   /* --- neutral --- */
+  --Primitives--neutral--0: #FFFFFF;
+  --Primitives--neutral--white: #FFFFFF;
+  --Primitives--neutral--black: #000000;
   --Primitives--neutral--50: #FAFAFA;
   --Primitives--neutral--100: #F5F5F5;
   --Primitives--neutral--150: #EDEDED;
@@ -254,6 +257,7 @@
   --Semantics--warning-light: var(--Primitives--amber--50);
   --Semantics--info: var(--Primitives--blue--600);
   --Semantics--info-light: var(--Primitives--blue--50);
+  --Semantics--background: var(--Primitives--neutral--white);
   --Semantics--muted: var(--Primitives--neutral--100);
   --Semantics--border: var(--Primitives--neutral--200);
 

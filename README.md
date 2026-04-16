@@ -171,7 +171,15 @@ App
 │
 │   └── SettingsPage             # Страница настроек профиля (данные и безопасность)
 │
-
+│   └── AdminPage                # Главная страница админ-панели
+│       ├── AdminDashboardLayout # Каркас админки (сайдбар + контент)
+│       ├── AdminDashboardMain   # Раздел со статистикой платформы
+│       ├── AdminUsersPage       # Управление пользователями
+│       ├── AdminInternshipsPage # Модерация стажировок
+│       ├── AdminCompaniesPage   # Управление организациями
+│       ├── AdminReportsPage     # Жалобы и обращения
+│       └── AdminSettingsPage    # Настройки платформы
+│
 └── Modals (Обёртки из ModalContext)
     ├── AuthModal
     ├── PostModal

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { IInternship } from "./types";
 import { useInternships } from "./context/InternshipContext";
 import { useAuth } from "./context/AuthContext";
@@ -13,6 +13,7 @@ import { HomePage } from "./pages/HomePage";
 import { FavoritesPage } from "./pages/FavoritesPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { SettingsPage } from "./pages/SettingsPage";
+import { AdminPage } from "./pages/AdminPage";
 
 // Lazy-loaded modals — only loaded when first opened
 const FilterModal = lazy(() => import('./components/filter-modal/FilterModal').then(m => ({ default: m.FilterModal })));
@@ -43,6 +44,8 @@ export default function App() {
   };
 
   const isCompanyProfile = currentUser?.role === 'company' && location.pathname.startsWith('/profile');
+  const isAdminPanel = currentUser?.role === 'admin' && location.pathname.startsWith('/admin');
+
 
   return (
     <>
@@ -55,10 +58,11 @@ export default function App() {
           <Route path="/favorites" element={<FavoritesPage  />} />
           <Route path="/profile/*" element={<ProfilePage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/admin/*" element={currentUser?.role === 'admin' ? <AdminPage /> : <Navigate to="/" replace />} />
         </Routes>
       </main>
 
-      {!isCompanyProfile && <Footer />}
+      {(!isCompanyProfile && !isAdminPanel) && <Footer />}
       <ScrollTopButton />
 
       <Suspense fallback={null}>

@@ -67,7 +67,7 @@ export interface IUser {
     firstName: string;
     lastName: string;
     middleName?: string;
-    role: 'student' | 'company' | null;
+    role: 'student' | 'company' | 'admin' | null;
     university?: string;
     course?: string | number;
     direction?: string;
