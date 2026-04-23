@@ -29,7 +29,7 @@ export const ConfirmModal = () => {
                     <button className="btn btn--outline btn--full" onClick={handleCancel}>
                         {confirmModal.cancelLabel || "Отмена"}
                     </button>
-                    <button className="btn btn--primary btn--full" onClick={handleConfirm}>
+                    <button className={`btn btn--full ${confirmModal.variant === 'danger' ? 'btn--danger' : 'btn--primary'}`} onClick={handleConfirm}>
                         {confirmModal.confirmLabel || "Продолжить"}
                     </button>
                 </div>

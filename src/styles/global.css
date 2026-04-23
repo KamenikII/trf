@@ -85,6 +85,22 @@ img {
     transform: scale(0.98);
 }
 
+.btn--danger {
+    background: var(--Semantics--error);
+    color: #fff;
+    border: 1.5px solid var(--Semantics--error);
+}
+
+.btn--danger:hover {
+    background: var(--Primitives--red--700);
+    border-color: var(--Primitives--red--700);
+}
+
+.btn--danger:active {
+    box-shadow: var(--Effects--Semantics--shadow-button-active);
+    transform: scale(0.98);
+}
+
 .btn--outline {
     background: transparent;
     color: var(--Primitives--neutral--950);

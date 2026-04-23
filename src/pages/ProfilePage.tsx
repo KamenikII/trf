@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { IProfileData, MOCK_PROFILE, TABS } from "../components/profile/profile.types";
 import { ProfileHeader } from "../components/profile/profile-header/ProfileHeader";
@@ -6,6 +7,12 @@ import { ProfileTabs } from "../components/profile/profile-tabs/ProfileTabs";
 import { ProfileStats } from "../components/profile/profile-stats/ProfileStats";
 import { ProfileSkills } from "../components/profile/profile-skills/ProfileSkills";
 import { ProfilePlaceholder } from "../components/profile/profile-placeholder/ProfilePlaceholder";
+import { CompanyCreateInlineForm } from "../components/profile/company-profile/CompanyCreateInlineForm";
+import { CompanyDashboardLayout } from "../components/profile/company-dashboard/CompanyDashboardLayout";
+import { EmployeesPage } from "../components/profile/company-dashboard/employees/EmployeesPage";
+import { CompanySettingsPage } from "../components/profile/company-dashboard/settings/CompanySettingsPage";
+import { InternshipsPage } from "../components/profile/company-dashboard/internships/InternshipsPage";
+import { BillingPage } from "../components/profile/company-dashboard/billing/BillingPage";
 
 /* ── SVG-иконки для плейсхолдеров (inline, уникальные для каждой вкладки) ── */
 
@@ -55,6 +62,63 @@ export const ProfilePage = () => {
   const handleTabChange = useCallback((key: string) => {
     setActiveTab(key);
   }, []);
+
+  const isCompany = currentUser?.role === 'company';
+  
+  if (isCompany) {
+    if (currentUser?.companyName) {
+      return (
+        <CompanyDashboardLayout>
+           <Routes>
+             <Route path="/" element={<Navigate to="/profile/dashboard" replace />} />
+             <Route path="dashboard" element={
+                <ProfilePlaceholder
+                  icon={ProjectsPlaceholderIcon}
+                  title="Дэшборд организации"
+                  hint="Здесь будет отображаться сводная статистика"
+                />
+             } />
+             <Route path="employees" element={<EmployeesPage />} />
+             <Route path="internships" element={<InternshipsPage />} />
+             {currentUser?.isEducational && (
+               <Route path="students" element={
+                  <ProfilePlaceholder
+                    icon={TasksPlaceholderIcon}
+                    title="Студенты"
+                    hint="Список студентов вашего заведения"
+                  />
+               } />
+             )}
+             <Route path="projects" element={
+                <ProfilePlaceholder
+                  icon={ProjectsPlaceholderIcon}
+                  title="Проекты"
+                  hint="Ваши корпоративные проекты"
+                />
+             } />
+             <Route path="tasks" element={
+                <ProfilePlaceholder
+                  icon={TasksPlaceholderIcon}
+                  title="Задания"
+                  hint="Управление тестовыми заданиями"
+                />
+             } />
+             <Route path="billing" element={<BillingPage />} />
+             <Route path="settings" element={<CompanySettingsPage />} />
+             <Route path="*" element={<Navigate to="/profile/dashboard" replace />} />
+           </Routes>
+        </CompanyDashboardLayout>
+      );
+    }
+
+    return (
+      <section className="profile-page" id="profile-page">
+        <div className="profile-page__container">
+          <CompanyCreateInlineForm />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="profile-page" id="profile-page">
@@ -109,3 +173,4 @@ export const ProfilePage = () => {
     </section>
   );
 };
+

@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from "react";
+import { useAuth } from "../context/AuthContext";
 
 const INITIAL_FORM = {
     company: "", position: "", description: "", salary: "",
@@ -6,6 +7,7 @@ const INITIAL_FORM = {
 };
 
 export function usePostForm() {
+    const { currentUser } = useAuth();
     const [form, setForm] = useState(INITIAL_FORM);
     const [errors, setErrors] = useState<any>({});
     const [selectedDirs, setSelectedDirs] = useState<any[]>([]);
@@ -20,18 +22,22 @@ export function usePostForm() {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const resetForm = useCallback(() => {
-        setForm(INITIAL_FORM);
+        setForm({
+            ...INITIAL_FORM,
+            company: currentUser?.companyName || "",
+            contact: currentUser?.contactEmail || currentUser?.email || "",
+        });
         setErrors({});
         setSelectedDirs([]);
-        setSelectedFormat("");
-        setSelectedEmployment("");
-        setSelectedExperience("");
+        setSelectedFormat(currentUser?.preferences?.defaultFormat || "");
+        setSelectedEmployment(currentUser?.preferences?.defaultEmployment || "");
+        setSelectedExperience(currentUser?.preferences?.defaultExperience || "");
         setGeoMode("all");
         setSelectedCities([]);
         setCitySearch("");
         setPhotoDataUrl(null);
         setPhotoPreview(false);
-    }, []);
+    }, [currentUser]);
 
     const updateField = useCallback((field: string, value: string) => {
         setForm(f => ({ ...f, [field]: value }));

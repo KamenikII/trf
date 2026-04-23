@@ -1,0 +1,227 @@
+/* ---------- Admin Settings Page ---------- */
+.admin-settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-6);
+}
+
+.admin-settings__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-settings-section {
+    background: var(--Semantics--background);
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-lg);
+    padding: var(--Spacing--Primitives--space-6);
+    box-shadow: var(--Effects--Primitives--shadow-xs);
+}
+
+.admin-settings-section__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--Primitives--neutral--950);
+    margin-bottom: var(--Spacing--Primitives--space-1);
+}
+
+.admin-settings-section__desc {
+    font-size: 13px;
+    color: var(--Primitives--neutral--500);
+    margin-bottom: var(--Spacing--Primitives--space-5);
+}
+
+.admin-settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--Spacing--Primitives--space-4) 0;
+    border-bottom: 1px solid var(--Primitives--neutral--100);
+    gap: var(--Spacing--Primitives--space-4);
+}
+
+.admin-settings-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.admin-settings-row:first-of-type {
+    padding-top: 0;
+}
+
+.admin-settings-row__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.admin-settings-row__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-settings-row__hint {
+    font-size: 12px;
+    color: var(--Primitives--neutral--500);
+}
+
+.admin-settings-row__control {
+    flex-shrink: 0;
+}
+
+/* Number input */
+.admin-settings-number {
+    width: 80px;
+    padding: var(--Spacing--Primitives--space-2) var(--Spacing--Primitives--space-3);
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: var(--Typography--Primitives--font-size--14);
+    text-align: center;
+    color: var(--Primitives--neutral--950);
+    background: var(--Semantics--background);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.admin-settings-number:focus {
+    border-color: var(--Primitives--neutral--400);
+}
+
+/* Text input */
+.admin-settings-text {
+    width: 280px;
+    max-width: 100%;
+    padding: var(--Spacing--Primitives--space-2) var(--Spacing--Primitives--space-3);
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: var(--Typography--Primitives--font-size--14);
+    color: var(--Primitives--neutral--950);
+    background: var(--Semantics--background);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.admin-settings-text:focus {
+    border-color: var(--Primitives--neutral--400);
+}
+
+/* Textarea */
+.admin-settings-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: var(--Spacing--Primitives--space-2) var(--Spacing--Primitives--space-3);
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-family: inherit;
+    color: var(--Primitives--neutral--950);
+    background: var(--Semantics--background);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.admin-settings-textarea:focus {
+    border-color: var(--Primitives--neutral--400);
+}
+
+/* Save bar */
+.admin-settings-save-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--Spacing--Primitives--space-3);
+    padding: var(--Spacing--Primitives--space-4) var(--Spacing--Primitives--space-6);
+    background: var(--Primitives--neutral--50);
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-lg);
+    box-shadow: var(--Effects--Primitives--shadow-xs);
+}
+
+.admin-settings-save-bar__hint {
+    font-size: 13px;
+    color: var(--Primitives--neutral--500);
+    margin-right: auto;
+}
+
+.admin-settings-btn {
+    padding: var(--Spacing--Primitives--space-2) var(--Spacing--Primitives--space-5);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    cursor: pointer;
+    transition: var(--Effects--Semantics--transition-button);
+    border: 1px solid;
+}
+
+.admin-settings-btn--primary {
+    background: var(--Primitives--neutral--950);
+    color: var(--Semantics--background);
+    border-color: var(--Primitives--neutral--950);
+}
+
+.admin-settings-btn--primary:hover {
+    background: var(--Primitives--neutral--800);
+}
+
+.admin-settings-btn--primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.admin-settings-btn--secondary {
+    background: var(--Semantics--background);
+    color: var(--Primitives--neutral--700);
+    border-color: var(--Primitives--neutral--200);
+}
+
+.admin-settings-btn--secondary:hover {
+    background: var(--Primitives--neutral--50);
+}
+
+/* Toast notification */
+.admin-toast {
+    position: fixed;
+    bottom: var(--Spacing--Primitives--space-6);
+    right: var(--Spacing--Primitives--space-6);
+    background: var(--Primitives--neutral--950);
+    color: var(--Semantics--background);
+    padding: var(--Spacing--Primitives--space-3) var(--Spacing--Primitives--space-5);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: var(--Typography--Primitives--font-size--14);
+    font-weight: var(--Typography--Primitives--font-weight--500);
+    z-index: 3000;
+    box-shadow: var(--Effects--Primitives--shadow-lg);
+    animation: admin-toast-in 0.3s ease;
+}
+
+@keyframes admin-toast-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-settings-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-settings-text {
+        width: 100%;
+    }
+
+    .admin-settings-save-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-settings-save-bar__hint {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}

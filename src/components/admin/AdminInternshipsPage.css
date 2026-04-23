@@ -1,0 +1,240 @@
+/* ---------- Admin Internships Page ---------- */
+.admin-internships {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Spacing--Primitives--space-4);
+}
+
+.admin-internships__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--Spacing--Primitives--space-3);
+}
+
+.admin-internships__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-internships__toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-3);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Status tabs */
+.admin-status-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--Primitives--neutral--100);
+    padding: 4px;
+    border-radius: var(--Radius--Primitives--radius-sm);
+}
+
+.admin-status-tab {
+    padding: 6px 16px;
+    border-radius: var(--Radius--Primitives--radius-xs);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--Primitives--neutral--600);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.admin-status-tab:hover {
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-status-tab.is-active {
+    background: #fff;
+    color: var(--Primitives--neutral--950);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.admin-status-tab__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--600);
+    border-radius: var(--Radius--Primitives--radius-full);
+    font-size: var(--Typography--Primitives--font-size--12);
+}
+
+.admin-status-tab.is-active .admin-status-tab__count {
+    background: var(--Primitives--neutral--950);
+    color: var(--Semantics--background);
+}
+
+/* Badges override */
+.admin-badge--pending {
+    background-color: var(--Semantics--warning-light);
+    color: var(--Semantics--warning);
+}
+
+.admin-badge--approved {
+    background-color: var(--Semantics--success-light);
+    color: var(--Semantics--success);
+}
+
+.admin-badge--rejected {
+    background-color: var(--Semantics--error-light);
+    color: var(--Semantics--error);
+}
+
+/* Company cell */
+.admin-company-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing--Primitives--space-2);
+}
+
+.admin-company-cell__logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--Primitives--neutral--200);
+    color: var(--Primitives--neutral--600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.admin-company-cell__name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+/* Salary */
+.admin-salary {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Format badge */
+.admin-format {
+    font-size: 12px;
+    color: var(--Primitives--neutral--600);
+    white-space: nowrap;
+}
+
+/* Action row for approve/reject */
+.admin-mod-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.admin-mod-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--Radius--Primitives--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background: transparent;
+    color: var(--Primitives--neutral--500);
+}
+
+.admin-action-btn--success:hover {
+    background: var(--Semantics--success-light);
+    color: var(--Semantics--success);
+    border-color: var(--Primitives--green--200);
+}
+
+.admin-mod-btn--reject:hover {
+    background: #FEF2F2;
+    color: #DC2626;
+    border-color: #FECACA;
+}
+
+.admin-mod-btn--view:hover {
+    background: var(--Primitives--neutral--100);
+    color: var(--Primitives--neutral--950);
+    border-color: var(--Primitives--neutral--200);
+}
+
+/* Reject reason modal */
+.admin-reject-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.admin-reject-box {
+    background: #fff;
+    border-radius: var(--Radius--Primitives--radius-lg);
+    padding: var(--Spacing--Primitives--space-6);
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.admin-reject-box h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--Primitives--neutral--950);
+    margin-bottom: var(--Spacing--Primitives--space-4);
+}
+
+.admin-reject-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid var(--Primitives--neutral--200);
+    border-radius: var(--Radius--Primitives--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    margin-bottom: var(--Spacing--Primitives--space-4);
+    color: var(--Primitives--neutral--950);
+}
+
+.admin-reject-textarea:focus {
+    border-color: var(--Primitives--neutral--400);
+}
+
+.admin-reject-textarea::placeholder {
+    color: var(--Primitives--neutral--400);
+}
+
+.admin-reject-actions {
+    display: flex;
+    gap: var(--Spacing--Primitives--space-3);
+    justify-content: flex-end;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-internships__toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-status-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}

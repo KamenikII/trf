@@ -12,6 +12,9 @@ export interface ModalContextType {
     authModalOpen: boolean;
     openAuthModal: () => void;
     closeAuthModal: () => void;
+    createOrgModalOpen: boolean;
+    openCreateOrgModal: () => void;
+    closeCreateOrgModal: () => void;
     detailItem: IInternship | null;
     openDetail: (item: IInternship) => void;
     closeDetail: () => void;
@@ -26,8 +29,17 @@ export interface ModalContextType {
         onCancel?: () => void;
         confirmLabel?: string;
         cancelLabel?: string;
+        variant?: 'primary' | 'danger';
     };
-    openConfirm: (options: { title: string; message: string; onConfirm: () => void, onCancel?: () => void, confirmLabel?: string, cancelLabel?: string }) => void;
+    openConfirm: (options: { 
+        title: string; 
+        message: string; 
+        onConfirm: () => void;
+        onCancel?: () => void;
+        confirmLabel?: string;
+        cancelLabel?: string;
+        variant?: 'primary' | 'danger';
+    }) => void;
     closeConfirm: () => void;
 }
 
@@ -38,17 +50,28 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     const [filterModalSection, setFilterModalSection] = useState("sort");
     const [postModalOpen, setPostModalOpen] = useState(false);
     const [authModalOpen, setAuthModalOpen] = useState(false);
+    const [createOrgModalOpen, setCreateOrgModalOpen] = useState(false);
     const [detailItem, setDetailItem] = useState<IInternship | null>(null);
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState("Стажировка успешно опубликована!");
-    const [confirmModal, setConfirmModal] = useState({ 
+    const [confirmModal, setConfirmModal] = useState<{
+        isOpen: boolean;
+        title: string;
+        message: string;
+        onConfirm: () => void;
+        onCancel: () => void;
+        confirmLabel: string;
+        cancelLabel: string;
+        variant: 'primary' | 'danger';
+    }>({ 
         isOpen: false, 
         title: "", 
         message: "", 
         onConfirm: () => {},
         onCancel: () => {},
         confirmLabel: "Подтвердить",
-        cancelLabel: "Отмена"
+        cancelLabel: "Отмена",
+        variant: 'primary'
     });
 
     const openFilterModal = useCallback((section?: string) => {
@@ -64,6 +87,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     const openAuthModal = useCallback(() => setAuthModalOpen(true), []);
     const closeAuthModal = useCallback(() => setAuthModalOpen(false), []);
 
+    const openCreateOrgModal = useCallback(() => setCreateOrgModalOpen(true), []);
+    const closeCreateOrgModal = useCallback(() => setCreateOrgModalOpen(false), []);
+
     const openDetail = useCallback((item: IInternship) => setDetailItem(item), []);
     const closeDetail = useCallback(() => setDetailItem(null), []);
 
@@ -73,7 +99,15 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         setTimeout(() => setToastVisible(false), 3000);
     }, []);
 
-    const openConfirm = useCallback((options: { title: string; message: string; onConfirm: () => void, onCancel?: () => void, confirmLabel?: string, cancelLabel?: string }) => {
+    const openConfirm = useCallback((options: { 
+        title: string; 
+        message: string; 
+        onConfirm: () => void;
+        onCancel?: () => void;
+        confirmLabel?: string;
+        cancelLabel?: string;
+        variant?: 'primary' | 'danger';
+    }) => {
         setConfirmModal({
             isOpen: true,
             title: options.title,
@@ -81,7 +115,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             onConfirm: options.onConfirm,
             onCancel: options.onCancel || (() => {}),
             confirmLabel: options.confirmLabel || "Подтвердить",
-            cancelLabel: options.cancelLabel || "Отмена"
+            cancelLabel: options.cancelLabel || "Отмена",
+            variant: options.variant || 'primary'
         });
     }, []);
 
@@ -94,6 +129,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             filterModalOpen, filterModalSection, openFilterModal, closeFilterModal,
             postModalOpen, openPostModal, closePostModal,
             authModalOpen, openAuthModal, closeAuthModal,
+            createOrgModalOpen, openCreateOrgModal, closeCreateOrgModal,
             detailItem, openDetail, closeDetail,
             toastVisible, toastMessage, showToast,
             confirmModal, openConfirm, closeConfirm

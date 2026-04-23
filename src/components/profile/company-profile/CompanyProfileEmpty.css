@@ -1,0 +1,88 @@
+.company-profile-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--Spacing--Primitives--space-14) 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.company-profile-empty__title {
+  font-family: var(--Typography--Semantics--Main--heading-2--font-family);
+  font-size: var(--Typography--Semantics--Main--heading-2--font-size);
+  font-weight: var(--Typography--Semantics--Main--heading-2--font-weight);
+  color: var(--Primitives--neutral--950);
+  margin-bottom: var(--Spacing--Primitives--space-4);
+}
+
+.company-profile-empty__subtitle {
+  font-family: var(--Typography--Semantics--Main--body--font-family);
+  font-size: var(--Typography--Semantics--Main--body--font-size);
+  color: var(--Primitives--neutral--500);
+  margin-bottom: var(--Spacing--Primitives--space-10);
+  max-width: 600px;
+}
+
+.company-profile-empty__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--Spacing--Primitives--space-6);
+  width: 100%;
+}
+
+.company-profile-empty__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: var(--Spacing--Primitives--space-8);
+  background: var(--Primitives--neutral--50);
+  border: 1.6px solid var(--Primitives--neutral--alpha-10);
+  border-radius: var(--Spacing--Primitives--space-5);
+  cursor: pointer;
+  transition: var(--Effects--Semantics--transition-button);
+}
+
+.company-profile-empty__card:hover {
+  border-color: var(--Primitives--neutral--950);
+  background: #fff;
+  box-shadow: var(--Effects--Primitives--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.company-profile-empty__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--Primitives--neutral--100);
+  color: var(--Primitives--neutral--950);
+  border-radius: var(--Radius--Primitives--radius-full);
+  margin-bottom: var(--Spacing--Primitives--space-6);
+}
+
+.company-profile-empty__card-title {
+  font-family: var(--Typography--Semantics--Main--heading-4--font-family);
+  font-size: var(--Typography--Semantics--Main--heading-4--font-size);
+  font-weight: var(--Typography--Semantics--Main--heading-4--font-weight);
+  color: var(--Primitives--neutral--950);
+  margin-bottom: var(--Spacing--Primitives--space-2);
+}
+
+.company-profile-empty__card-desc {
+  font-family: var(--Typography--Semantics--Main--body-small--font-family);
+  font-size: var(--Typography--Semantics--Main--body-small--font-size);
+  color: var(--Primitives--neutral--500);
+  line-height: var(--Typography--Primitives--line-height--150);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .company-profile-empty__cards {
+    grid-template-columns: 1fr;
+    gap: var(--Spacing--Primitives--space-4);
+  }
+}

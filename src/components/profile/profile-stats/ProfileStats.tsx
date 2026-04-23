@@ -28,7 +28,7 @@ export const ProfileStats = ({ rating, earned }: ProfileStatsProps) => {
       </div>
 
       {/* Карточка заработка — светлая */}
-      <div className="profile-stats__card profile-stats__card--earned">
+      <div className="profile-stats__card profile-stats__card--fire">
         <div className="profile-stats__label">
           <CoinIcon />
           <span>ЗАРАБОТАНО</span>

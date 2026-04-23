@@ -140,16 +140,20 @@
     width: 100%;
     height: 100%;
     background: #fff;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
     visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.3s;
 }
 
 .settings-mobile-menu.is-open {
     transform: translateX(0);
+    opacity: 1;
     visibility: visible;
 }
 
